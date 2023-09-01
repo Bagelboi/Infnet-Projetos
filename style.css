@@ -1,0 +1,310 @@
+body {
+    font-size: 1.2rem;
+    background-image: url("img/background.png");
+}
+
+#container {
+    margin:auto;
+    width:100%;
+}
+
+footer {
+    background-image: url("img/fundo-rodape.png");
+    color:white;
+    padding:20px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 20px;
+}
+
+p {
+    margin-top: 15px;
+    padding-left: 45px;
+    padding-right: 45px;
+    line-height: 1.5em;;
+    text-align: center;
+    width:100%;
+}
+
+.menu-principal {
+    display:inline-block;
+}
+
+.menu-principal ul, li {
+    display: inline-block;
+    margin-left: 10px;
+    font-size: 1.2em;
+}
+
+.menu-principal a {
+    color: darkgreen;
+    text-decoration: none;
+    transition: 0.5s
+}
+
+.menu-principal a:before {
+    content:"♠ ";
+}
+
+.menu-principal a:hover {
+    color:lightgreen;
+}
+
+
+
+
+h2 {
+    border-bottom: solid 2px black;
+    margin-top: 30px;
+    font-size: 1.2em;
+}
+
+figure {
+    background-color: #F2EDED;
+    border: 1px solid black;
+    text-align: center;
+    margin: 15px;
+    padding: 30px;
+}
+
+figcaption {
+    margin-top: 10px;
+}
+
+#img_familia {
+    float:right;
+}
+
+#ul_dif {
+    list-style:disc;
+    margin-top: 15px;
+    margin-left: 60px;
+}
+
+#ul_dif li {
+    display:list-item;
+    margin-bottom: 10px;
+}
+
+.sacola {
+    width:140px;
+    background-image: url("img/sacola.png");
+    background-repeat: no-repeat;
+    background-position: right top;
+    padding-right:35px;
+    text-align: right;
+    position:absolute;
+    right:0px;
+    top:0px;
+    margin-top: 2px;
+}
+
+.social {
+height: 32px;
+width: 32px;
+display: inline-block;
+text-indent: -9999px;
+background-image: url("img/sociais.png");
+}
+
+.social[href="twitter.com"] {
+    background-position-x: 32px;
+}
+
+.social[href="google.com"] {
+    background-position-x: -44px;
+}
+
+
+.caixa-destaque {
+    display:flex;
+    justify-content:flex-start;
+}
+
+.caixa-destaque img {
+    flex-basis: 50%;
+}
+
+
+
+
+.busca, .menu-departamentos {
+    background-color: #dcdcdc;
+    font-weight: bolder;
+    text-transform: uppercase;
+    margin-right: 10px;
+    width:230px;
+
+}
+
+
+.busca {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.busca button {
+    background-color: none;
+    border:none;
+}
+
+.busca input[type='search'] {
+    width:170px;
+    height:25px;
+    border-radius: 10px;
+}
+
+.busca form, h2 {
+    margin:10px;
+}
+
+
+.menu-departamentos {
+    margin-top: 50px;
+    padding-bottom: 10px;
+}
+
+.menu-departamentos h2 {
+    margin:10px;
+}
+
+.menu-departamentos ul {
+    background-color: white;
+    margin-bottom: 1px;
+    margin: 5px 10px;
+}
+
+.menu-departamentos ul nav{
+    display:none;
+    font-size: 0.75em;
+}
+
+.menu-departamentos ul nav a {
+    border:#333 2px;
+}
+
+.menu-departamentos ul nav a:before {
+    content:"- ";
+    padding-right: 3px;
+}
+
+.menu-departamentos ul nav li{
+    display:inline-block;
+    background-color: lightgray;
+}
+
+.menu-departamentos ul:hover nav{
+    display:inline-block;
+}
+
+.menu-departamentos a {
+    color:darkslategray;
+    text-decoration: none;
+}
+
+
+.caixa {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.painel {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    border-radius: 2px;
+    box-shadow: 6px 0px 17px -8px rgba(0,0,0,0.75);
+}
+
+.painel h2 {
+    font-size: 1.2em;
+    font-weight:bolder;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    text-shadow: 5px rgba(100%, 100%, 100%,80%);
+}
+
+.painel h2:before {
+    padding-right: 5px;
+    opacity: 0.4;
+    content: '\2756';
+}
+
+#news {
+    background-color: #f5dcdc;
+    box-shadow: inset 8px 9px 7px -6px rgba(0,0,0,0.4);
+}
+
+#sales {
+    background-color: #dcdcf5;
+    box-shadow: inset 8px 9px 7px -6px rgba(0,0,0,0.4);
+}
+
+.painel a {
+    color: #333;
+    text-decoration: none;
+    text-align: center;
+}
+
+.painel li {
+    display: inline-block;
+    vertical-align: top;
+    width:140px;
+    margin:2px;
+    padding-bottom: 10px;
+    transition: 0.7s ease-out;
+}
+
+.painel li:hover {
+    background-color: rgba(100%, 100%, 100%,80%);
+    transform: scale(1.2) rotate(-5deg);
+    transition: 0.7s ease-in;
+}
+
+.painel figure, figcaption {
+    margin: 0px;
+    padding: 0px;
+}
+
+#contato form {
+    font-weight:bold;
+    padding-left:30px;
+    margin-bottom: 20%;
+}
+
+#contato form * {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    vertical-align: top;
+    padding: 5px;
+}
+
+#contato form button {
+    background-color: white;
+    width: 120px;
+    font-weight: bold;
+}
+
+
+#fidelidade table, th, tr {
+    border: 3px dotted gray;
+    background-color:#dcdcf5; 
+    vertical-align:middle;
+}
+
+#fidelidade tr, th {
+    padding-top: 20px;
+    padding-bottom:20px;
+}
+
+#fidelidade table {
+    margin-top: 20px;
+    margin-bottom: 30px;
+    margin-left: 150px;
+    margin-right: 150px;
+}

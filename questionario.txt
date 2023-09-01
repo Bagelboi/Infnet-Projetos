@@ -1,0 +1,38 @@
+1) Quando é recomendando a criação de um site separado para mobile? Seria
+este o caso deste site da GK Fashion?
+
+Sim, porque um portal de loja de roupas não precisa de controles ou APIs especificas que um aplicativo forneceria para funcionar, alem de dar preferencia á um publico-alvo mais expanso que não se limita ao hardware.
+
+2) No caso de um CSS específico para print, como ele deve ser inserido?
+
+  @media print {
+	...formatação da pagina...
+   }
+
+3) O elemento audio permite como elemento?filho o elemento source. Quais são
+os atributos que o source permite e qual conteúdo eles suportam? Quais os
+outros atributos do elemento audio e quando devem ser utilizados?
+
+O elemento source como filho de audio suporta qualquer tipo de audio, ou um formato especifico.
+Os elementos mais comuns do elemento audio são o loop, autoplay, muted e controls. Loop é usado para quando o audio volta pro começo apos terminar, autoplay para tocar o audio automaticamente, muted para deixar mutado e controls para adicionar controles de pausa, volume e linha de tempo.
+
+4) O elemento video permite como elemento?filho o elemento source. Quais são
+os atributos que o source permite e qual conteúdo eles suportam? Quais os
+outros atributos do elemento video e quando devem ser utilizados?
+
+O elemento source como filho de video suporta qualquer tipo de video, ou um formato especifico.
+Os elementos mais comuns do elemento video são o poster, loop, autoplay, muted, controls. Poster coloca uma imagem em frente ao video enquanto carrega para o usuario, loop é usado para quando o video volta pro começo apos terminar, autoplay para iniciar o video automaticamente, muted para deixar mutado e controls para adicionar controles de pausa, volume e linha de tempo.
+
+5) No caso do canvas, HTML 5 nunca, em momento algum, fez qualquer
+animação. Isso porquê o HTML 5 é uma simples linguagem de marcação. Dessa
+forma, o que é necessário para criar animações com HTML5? O que são APIs do
+HTML5?
+
+Para usar animações no HTML, é comumente utilizado o bloco de CSS "@keyframe" do Web Animations API, nomeando esse bloco e adicionando um atributo "animation", tambem fornecido pelo API,  no elemento que quiser animar. 
+Os APIs de HTML5 são conjuntos de ferramentas que ja estão incluidas na linguagem ou adicionadas posteriormente no caso de APIs externos. A vantagem principal das APIs de HTML5 é que elas acabam diminuindo o boilerplate para funcionalidades graficas nas scripts do documento.
+
+6) Como o CSS3 pode ser aplicado na aparência da multimídia HTML5.  
+Demonstre com um exemplo
+
+???
+
