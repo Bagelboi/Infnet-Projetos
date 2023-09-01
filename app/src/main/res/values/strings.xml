@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Mike\'s MMO : Criador de Personagem</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="mainmenu_name">Nome</string>
+    <string name="mainmenu_age">Idade</string>
+    <string name="mainmenu_gender">Genero</string>
+    <string name="mainmenu_level">Nivel</string>
+</resources>
