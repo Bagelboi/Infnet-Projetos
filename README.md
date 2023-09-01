@@ -1,2 +1,2 @@
 # Infnet-Projetos
-Projetos de Android que fiz na Infnet
+Projetos que fiz na Infnet
