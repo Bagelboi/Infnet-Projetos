@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "833918550792",
+    "project_id": "daniellipkinsmpat",
+    "storage_bucket": "daniellipkinsmpat.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:833918550792:android:10ba961fdfba221d8da2bd",
+        "android_client_info": {
+          "package_name": "com.danielgomeslipkin.smp.at"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "833918550792-5kndcgg6p4p774kldd0k06331ck8aorl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBaKI2o4PEgseK3622cGtm4mgezr2mxNgI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "833918550792-5kndcgg6p4p774kldd0k06331ck8aorl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
