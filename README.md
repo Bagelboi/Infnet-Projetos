@@ -1,4 +1,4 @@
-![image](https://github.com/Bagelboi/Infnet-Projetos/assets/43627315/aaa9f45e-73e1-42bf-bacb-d2b97260c93e)# Projetos da Infnet
+Projetos da Infnet
 Aqui estão projetos destacados que foram feitos no Instituto Infnet por mim ou em grupo durante os trimestres/blocos ja decorridos.
 
 # Bloco de Android
