@@ -1,4 +1,4 @@
-# Projetos da Infnet
+![image](https://github.com/Bagelboi/Infnet-Projetos/assets/43627315/aaa9f45e-73e1-42bf-bacb-d2b97260c93e)# Projetos da Infnet
 Aqui estão projetos destacados que foram feitos no Instituto Infnet por mim ou em grupo durante os trimestres/blocos ja decorridos.
 
 # Bloco de Android
@@ -10,7 +10,7 @@ Esse foi meu primeiro bloco e consideravelmente o mais dificil comparado ao rest
   https://play.google.com/store/apps/details?id=com.danielgomeslipkin.unhooked.app&pli=1
   
   ## O projeto
-  O projeto do bloco consistiu em criar um aplicativo hosteado na Play Store com anuncios, com integração ao Firebase e organizado com a metodologia SCRUM. Esse trabalho devia ser feito em <b>GRUPO</b>. A proposta do aplicativo é basicamente um rastreador de vicios pessoais, como cigarros, com o intuito de auxiliar o usuario á controlar-lhe.
+  O projeto do bloco consistiu em criar um aplicativo hosteado na Play Store com anuncios, com integração ao Firebase e organizado com a metodologia SCRUM. Esse trabalho devia ser feito em <b>GRUPO</b>. A proposta do aplicativo é basicamente um rastreador de vicios pessoais, como cigarros, com o intuito de auxiliar o usuario para controlar ele.
 
   <b> NOTE QUE NÃO SOU PROFISSIONAL DE PSICANALISE OU PSICOTERAPIA E QUALQUER DADO IMPERATIVO PRESENTE NO PROJETO É SOMENTE POR RAZÕES DE TESTE E PROTOTIPO. </b>
 
@@ -48,6 +48,60 @@ Fatos circulam aleatoriamente, a frase em cima não.<br>
 <img src="https://i.imgur.com/yQBq9K4.png" width="30%"><br>
 Ao clica Adicionar Uso, voce seleciona uma data e adicione as horas usadas (TV por exemplo) ou unidades usadas (cigarros pro exemplo) naquela data. O aplicativo disponibilizara esses pontos de uso no Grafico e te dara uma Avaliação Geral de acordo com uma media arbitraria. Se por exemplo voce fumou 5 cigarros essa semana, sua avaliação sera "Boa".
 
+## Detalhes Técnicos
+### SCRUM
+<img src="https://i.imgur.com/Xgdmy6e.png" width="90%">
+
+### Realtime Database
+<img src="https://i.imgur.com/Fou6q6V.png" width="90%">
+
+### Firestore
+<img src="https://i.imgur.com/QyIqKd0.png" width="90%">
+</details>
+
+<details>
+  <summary>Outros</summary>
+
+  ## Criador de Personagem RPG
+  Esse foi um mini-projeto que visava aplicar nosso conhecimento de Intents e a transição entre Atividades/Paginas diferentes no Aplicativo. Eu tive a ideia de criar um criador de personagem para um RPG ficticio. O projeto original não salvava os personagens criados após fechar o aplicativo pela falta de experiencia, por isso adicionei rapidinho uma integração com o sistema de arquivos interno do Android recentemente.
+
+  O codigo esta na ramificação [android_mikes_mmo](https://github.com/Bagelboi/Infnet-Projetos/tree/android_mikes_mmo)
+
+ ### Pagina de Criação
+  <img src="https://i.imgur.com/Ot4t6a1.png" width="30%"><br>
+  O botão Classe vai para a seleção de Classe, Logo abre uma intent de escolher imagem do dispositivo e mudar a logo em cima do formulario e Creditos vai para a pagina de creditos
+
+  ### Pagina de Seleção de Classe
+  <img src="https://i.imgur.com/OZzAmos.png" width="30%"><br>
+  As habilidades são marcadas se o nivel determinado na criação iguala ou supera o nivel da habilidade
+
+  ### Pagina de Personagens criados
+  <img src="https://i.imgur.com/Kukp6Qn.png" width="30%">
+  <img src="https://i.imgur.com/KPfvzMC.png" width="30%"><br>
+  O (+) adiciona um personagem novo e a lixeira apaga
+  
+  ### Pagina de Creditos
+  <img src="https://i.imgur.com/XmVVJeJ.png" width="30%">
+
+
+  ## Aplicativo de Notas
+  Esse foi o trabalho final de uma disciplina que visava testar nosso conhecimento de Keystores, Anuncios, Arquivos Criptografados, Autenticação Firebase e Permissões (Principalmente relacionadas á Localização do usuario).
+
+  ### Pagina Pre-Login
+  <img src="https://i.imgur.com/QXdEiB6.png" width="30%">
+  
+  ### Pagina de Login
+  <img src="https://i.imgur.com/3em1C9P.png" width="30%">
+
+  ### Pagina de Notas
+  <img src="https://i.imgur.com/c1yWg0L.png" width="30%">
+  <img src="https://i.imgur.com/acxWkSr.png" width="30%"><br>
+  Ao clicar o sifrão, se estivesse integrado o aplicativo á Play Store, um pagamento seria requisitado para comprar a versão premium da secunda figura (Sem anuncios). Mas ao clicar, ja dispõe ela de graça.
+
+  ### Pagina de Criação de Nota
+  <img src="https://i.imgur.com/VPLLa7y.png" width="30%"><br>
+  O logo de localização pede a permissão de local. Os outros dois logos são para selecionar ou tirar foto para a nota. Ela então é salva como um arquivo criptografado e somente acessivel se o usuario logado for o que criou a nota.
+  
 </details>
 
 # Bloco de Web Full Stack
