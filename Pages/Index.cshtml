@@ -1,0 +1,79 @@
+﻿@page
+@model tp3_cnet.Pages.IndexModel
+
+@{
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Computador[0].Marca)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Computador[0].Processador)
+            </th>
+            <th>
+                Placa Mãe
+            </th>
+            <th>
+                Memória
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Computador[0].HD)
+            </th>
+            <th>
+                Numero do Patrimonio
+            </th>
+            <th>
+                Data da Compra
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Computador) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Marca)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Processador)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlacaMae)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Memoria)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HD)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumeroPatrimonio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataCompra)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</body>
+</html>

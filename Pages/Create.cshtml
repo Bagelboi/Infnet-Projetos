@@ -1,0 +1,71 @@
+﻿@page
+@model tp3_cnet.Pages.CreateModel
+
+@{}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+</head>
+<body>
+
+<h4>Computador</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Computador.Marca" class="control-label"></label>
+                <input asp-for="Computador.Marca" class="form-control" />
+                <span asp-validation-for="Computador.Marca" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Computador.Processador" class="control-label"></label>
+                <input asp-for="Computador.Processador" class="form-control" />
+                <span asp-validation-for="Computador.Processador" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Computador.PlacaMae" class="control-label"></label>
+                <input asp-for="Computador.PlacaMae" class="form-control" />
+                <span asp-validation-for="Computador.PlacaMae" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Computador.Memoria" class="control-label"></label>
+                <input asp-for="Computador.Memoria" class="form-control" />
+                <span asp-validation-for="Computador.Memoria" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Computador.HD" class="control-label"></label>
+                <input asp-for="Computador.HD" class="form-control" />
+                <span asp-validation-for="Computador.HD" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Computador.NumeroPatrimonio" class="control-label"></label>
+                <input asp-for="Computador.NumeroPatrimonio" class="form-control" />
+                <span asp-validation-for="Computador.NumeroPatrimonio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Computador.DataCompra" class="control-label"></label>
+                <input asp-for="Computador.DataCompra" class="form-control" />
+                <span asp-validation-for="Computador.DataCompra" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+</body>
+</html>
