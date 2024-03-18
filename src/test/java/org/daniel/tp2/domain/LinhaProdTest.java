@@ -1,6 +1,6 @@
-package org.daniel.tp3.domain;
+package org.daniel.tp2.domain;
 
-import org.daniel.tp3.domain.LinhaProducao;
+import org.daniel.tp2.domain.LinhaProducao;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;

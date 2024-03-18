@@ -1,22 +1,10 @@
-package org.daniel.tp3.domain;
+package org.daniel.tp2.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-
-@Entity
 public class LinhaProducao {
-
-	@Id
-	@GeneratedValue(strategy= GenerationType.AUTO)
-	private Integer id;
+	private final Integer id;
 	private boolean ativa;
-	private String setor;
-
-	public LinhaProducao() {
-	}
-
+	private final String setor;
+	
 	public LinhaProducao(Integer id, String setor, boolean ativa) {
 		this.id = Math.max(0, id);
 		this.setor = setor;

@@ -1,8 +1,8 @@
-package org.daniel.tp3.service;
+package org.daniel.tp2.service;
 
-import org.daniel.tp3.domain.Caixa;
-import org.daniel.tp3.domain.LinhaProducao;
-import org.daniel.tp3.domain.RobotArm;
+import org.daniel.tp2.domain.Caixa;
+import org.daniel.tp2.domain.LinhaProducao;
+import org.daniel.tp2.domain.RobotArm;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -49,6 +49,7 @@ public class LinhaProdServiceTest {
     public void testIncluirLinhaProducao() {
         assertTrue(linhaProdService.incluir(linha));
         assertTrue(linhaProdService.registrado(linha));
+        assertTrue(linhaProdService.registradoId(linha.getId()));
         assertNotNull(linhaProdService.obterId(linha.getId()));
     }
 
@@ -60,4 +61,33 @@ public class LinhaProdServiceTest {
         assertNull(linhaProdService.obterId(linha.getId()));
     }
 
+    @Test
+    public void testRobo() {
+        linhaProdService.incluir(linha);
+        assertTrue(linhaProdService.adicionarRobo(robos.get(0), 1));
+        assertTrue(linhaProdService.roboRegistrado(robos.get(0).getId()));
+
+        assertFalse(linhaProdService.roboParado(robos.get(0).getId()));
+        assertTrue(linhaProdService.transferirRobo(robos.get(0).getId(), -1));
+        assertTrue(linhaProdService.roboParado(robos.get(0).getId()));
+
+        assertFalse(linhaProdService.roboRegistrado(robos.get(1).getId()));
+        assertTrue(linhaProdService.removerRobo(robos.get(0).getId()));
+        assertFalse(linhaProdService.roboRegistrado(robos.get(0).getId()));
+    }
+
+    @Test
+    public void testCaixa() {
+        linhaProdService.incluir(linha);
+        assertTrue(linhaProdService.adicionarCaixa(caixas.get(0), 1));
+        assertTrue(linhaProdService.caixaRegistrado(caixas.get(0).getUID()));
+
+        assertFalse(linhaProdService.caixaParada(caixas.get(0).getUID()));
+        assertTrue(linhaProdService.transferirCaixa(caixas.get(0).getUID(), -1));
+        assertTrue(linhaProdService.caixaParada(caixas.get(0).getUID()));
+
+        assertFalse(linhaProdService.caixaRegistrado(caixas.get(1).getUID()));
+        assertTrue(linhaProdService.removerCaixas(caixas.get(0).getUID()));
+        assertFalse(linhaProdService.caixaRegistrado(caixas.get(0).getUID()));
+    }
 }

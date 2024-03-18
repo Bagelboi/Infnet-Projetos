@@ -1,6 +1,6 @@
 import javax.vecmath.Vector3d;
 
-import org.daniel.tp3.domain.Caixa;
+import org.daniel.tp2.domain.Caixa;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;

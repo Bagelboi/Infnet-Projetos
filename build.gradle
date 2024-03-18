@@ -12,25 +12,18 @@ repositories {
     mavenCentral()
 }
 
-
 dependencies {
     implementation 'javax.vecmath:vecmath:1.5.2'
-    implementation 'com.google.code.gson:gson:2.10.1'
-    testImplementation 'com.google.code.gson:gson:2.10.1'
     testImplementation 'javax.vecmath:vecmath:1.5.2'
     implementation platform('org.springframework.boot:spring-boot-dependencies:3.2.3')
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-    implementation 'org.springframework.cloud:spring-cloud-starter-openfeign:4.1.0'
+
+    implementation 'org.springframework.boot:spring-boot-starter'
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
     testImplementation 'junit:junit:4.13.1'
     testImplementation 'junit:junit:4.13.1'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-    //testImplementation 'com.h2database:h2:2.2.224'
-    implementation 'com.h2database:h2:2.2.224'
-
 }
 
 test {

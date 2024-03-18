@@ -1,8 +1,6 @@
-package org.daniel.tp3.domain;
-
 import javax.vecmath.Vector3d;
 
-import org.daniel.tp3.domain.RobotArm;
+import org.daniel.tp2.domain.RobotArm;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;

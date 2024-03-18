@@ -1,29 +1,16 @@
-package org.daniel.tp3.domain;
+package org.daniel.tp2.domain;
 
 
-
-import jakarta.persistence.*;
 
 import javax.vecmath.Vector3d;
-import java.awt.*;
 
-@Entity
 public class RobotArm {
-    @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
-    private Integer id;
+    private final Integer id;
     private Vector3d posicao;
     private double angulo;
     private boolean estado_garra;
-    private double tamanho_m; //tamanho do braço em metros
+    private final double tamanho_m; //tamanho do braço em metros
 
-    @ManyToOne
-    @JoinColumn(name = "linha_producao_id", referencedColumnName = "id")
-    private LinhaProducao linha;
-
-
-    public RobotArm() {
-    }
 
     public RobotArm(Integer id, Vector3d posicao, double angulo, boolean estado_garra, double tamanho_m) {
         this.id = id;
@@ -35,13 +22,6 @@ public class RobotArm {
     
     // encapsulação
 
-    public LinhaProducao getLinha() {
-        return linha;
-    }
-
-    public void setLinha(LinhaProducao linha) {
-        this.linha = linha;
-    }
     public Integer getId() {
         return id;
     }

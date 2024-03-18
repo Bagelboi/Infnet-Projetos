@@ -1,8 +1,8 @@
-package org.daniel.tp3.service;
+package org.daniel.tp2.service;
 
-import org.daniel.tp3.domain.Caixa;
-import org.daniel.tp3.domain.LinhaProducao;
-import org.daniel.tp3.domain.RobotArm;
+import org.daniel.tp2.domain.Caixa;
+import org.daniel.tp2.domain.LinhaProducao;
+import org.daniel.tp2.domain.RobotArm;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -55,12 +55,22 @@ public class ObjectsServiceTest {
     public void roboTest() {
         assertNotNull(roboService.obterId(2));
         assertNull(roboService.obterId(3));
-        assertFalse(roboService.roboRegistrado(2, 1));
-        assertFalse(roboService.roboRegistrado(3, 1));
+        assertTrue(linhaProdService.roboRegistrado(2));
+        assertFalse(linhaProdService.roboRegistrado(3));
         assertTrue( roboService.excluir(2) );
         assertFalse( roboService.excluir(2) );
         assertTrue( roboService.incluir(new RobotArm(2, new Vector3d(-12.0, -20.0, 0.0), 100.0, true, 4.0)) );
     }
 
+    @Test
+    public void caixaTest() {
+        assertNotNull(caixaService.obterId("UID_2"));
+        assertNull(caixaService.obterId("UID_3"));
+        assertTrue(linhaProdService.caixaRegistrado("UID_2"));
+        assertFalse(linhaProdService.caixaRegistrado("UID_3"));
+        assertTrue(caixaService.excluir("UID_2"));
+        assertFalse(caixaService.excluir("UID_2"));
+        assertTrue(caixaService.incluir(new Caixa("UID_3", 4.0, 2.0, new Vector3d(-12.0, -20.0, 0.0), true)));
+    }
 
 }
