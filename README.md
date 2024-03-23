@@ -21,7 +21,7 @@ Esse foi meu primeiro bloco e consideravelmente o mais dificil comparado ao rest
 
 ## Fotos
  Notara que o design é muito arcaico e certas coisas parecem estar desalinhadas, displays como o Grafico linear não aparentam utilidade e certas funcionalidades como vicios customizados do usuario não foram   
- implementados. Isso porque a minha dupla se dissolveu bem no começo do projeto sem haver substituo pelo tamanho da turma, tambem que por ser em Scrum so me disponibilizou no maximo 2 meses, e ainda por cima mais duas matérias que requeriam a construção, mesmo que basico, de um APK completo como trabalho final. Talvez eu revisite esse projeto outro dia e aprimore ele á minha visão completa, mas a experiencia me deixou um gosto amargo na boca.
+ implementados. Talvez revisite no futuro para dar uma aprimorada.
 
  ### Pagina de Login
 <img src="https://i.imgur.com/hmMUjHy.png" width="30%">
@@ -63,7 +63,7 @@ Ao clica Adicionar Uso, voce seleciona uma data e adicione as horas usadas (TV p
   <summary>Outros</summary>
 
   ## Criador de Personagem RPG
-  Esse foi um mini-projeto que visava aplicar nosso conhecimento de Intents e a transição entre Atividades/Paginas diferentes no Aplicativo. Eu tive a ideia de criar um criador de personagem para um RPG ficticio. O projeto original não salvava os personagens criados após fechar o aplicativo pela falta de experiencia, por isso adicionei rapidinho uma integração com o sistema de arquivos interno do Android recentemente.
+  Esse foi um mini-projeto que visava aplicar nosso conhecimento de Intents e a transição entre Atividades/Paginas diferentes no Aplicativo. Eu tive a ideia de criar um criador de personagem para um RPG ficticio. O projeto original não salvava os personagens criados após fechar o aplicativo pela falta de experiencia, por isso adicionei rapidinho uma integração com o sistema de arquivos interno do Android para persistir os dados.
 
   O codigo esta na ramificação [android_mikes_mmo](https://github.com/Bagelboi/Infnet-Projetos/tree/android_mikes_mmo)
 
@@ -107,4 +107,38 @@ Ao clica Adicionar Uso, voce seleciona uma data e adicione as horas usadas (TV p
 # Bloco de Web Full Stack
 <details>
   <summary>4reads</summary>
+  ## Link do APK
+  https://play.google.com/store/apps/details?id=com.danielgomeslipkin.unhooked.app&pli=1
+  
+  ## O projeto
+  O projeto do bloco consistiu em criar um site full-stack que utilizava o Firebase para atuar como banco de dados e o Vue para gerenciar o MVC.
+  A ideia foi um site no estilo de Goodreads, onde você seria recompensado pontos por criticar, comentar, etc sobre os livros e lojistas ofereceriam cupons para quem quisesse gastar esses pontos e ganhar promoções na compra de livros. 
+  E por mais que não esta completo tudo tudo tudo, estou bem orgulhoso do resultado inicial. Devo credito pela minha dupla Lucas Dias de Gondra, um estudante de Engenharia de Software com muito potencial.
+
+  ## Funcionalidades Completas
+  - Login com Firebase
+  - Dados armazenados no Firebase
+  - Sistema de criticas e comentarios com likes/dislikes
+  - Dados dos Livros retirados da API do OpenLibrary
+
+## Fotos
+###Landing Page
+  <img src="https://i.imgur.com/nOgBtEK.png" width="30%"><br>
+  <img src="https://i.imgur.com/OeEmeQU.png" width="30%"><br>
+###Busca
+<img src="https://i.imgur.com/8SBcrfc.png" width="30%"><br>
+###Pagina do Livro
+<img src="https://i.\imgur.com/bJ8kItt.png" width="30%"><br>
+###Pagina do Livro
+Com criticas
+<img src="https://i.imgur.com/JmksKXF.png" width="30%"><br>
+###Pagina do Usuario
+<img src="https://i.imgur.com/MpfGWJy.png" width="30%"><br>
+<img src="https://i.imgur.com/09Zkz7r.png" width="30%"><br>
+###Ranking dos Livros
+<img src="https://i.imgur.com/6dHJJEc.png" width="30%"><br>
+###Pagina de Cupons
+O primeiro cupom foi usado pelo usuario logado
+<img src="https://i.imgur.com/Xh1F99w.png" width="30%"><br>
+  
 </details>
