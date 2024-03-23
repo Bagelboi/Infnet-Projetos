@@ -107,8 +107,6 @@ Ao clica Adicionar Uso, voce seleciona uma data e adicione as horas usadas (TV p
 # Bloco de Web Full Stack
 <details>
   <summary>4reads</summary>
-  ## Link do APK
-  https://play.google.com/store/apps/details?id=com.danielgomeslipkin.unhooked.app&pli=1
   
   ## O projeto
   O projeto do bloco consistiu em criar um site full-stack que utilizava o Firebase para atuar como banco de dados e o Vue para gerenciar o MVC.
@@ -119,26 +117,26 @@ Ao clica Adicionar Uso, voce seleciona uma data e adicione as horas usadas (TV p
   - Login com Firebase
   - Dados armazenados no Firebase
   - Sistema de criticas e comentarios com likes/dislikes
+  - Sistema de pontos e cupons
   - Dados dos Livros retirados da API do OpenLibrary
 
 ## Fotos
-###Landing Page
-  <img src="https://i.imgur.com/nOgBtEK.png" width="30%"><br>
-  <img src="https://i.imgur.com/OeEmeQU.png" width="30%"><br>
-###Busca
+### Landing Page
+<img src="https://i.imgur.com/nOgBtEK.png" width="30%"><br>
+<img src="https://i.imgur.com/OeEmeQU.png" width="30%"><br>
+### Busca
 <img src="https://i.imgur.com/8SBcrfc.png" width="30%"><br>
-###Pagina do Livro
+### Pagina do Livro
 <img src="https://i.\imgur.com/bJ8kItt.png" width="30%"><br>
-###Pagina do Livro
-Com criticas
+Com criticas<br>
 <img src="https://i.imgur.com/JmksKXF.png" width="30%"><br>
-###Pagina do Usuario
+### Pagina do Usuario
 <img src="https://i.imgur.com/MpfGWJy.png" width="30%"><br>
 <img src="https://i.imgur.com/09Zkz7r.png" width="30%"><br>
-###Ranking dos Livros
+### Ranking dos Livros
 <img src="https://i.imgur.com/6dHJJEc.png" width="30%"><br>
-###Pagina de Cupons
-O primeiro cupom foi usado pelo usuario logado
+### Pagina de Cupons
+O primeiro cupom foi usado pelo usuario logado<br>
 <img src="https://i.imgur.com/Xh1F99w.png" width="30%"><br>
   
 </details>
