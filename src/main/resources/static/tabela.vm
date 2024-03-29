@@ -1,0 +1,32 @@
+#include( "static/layout.vm" )
+
+<div class="container">
+  <h2>$dataname</h2>
+  <table class="table">
+    <thead>
+      <tr>
+    #foreach($tableh in $tableheaders)
+        <th>$tableh</th>
+    #end
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      #foreach($tablei in $tableitems)
+        <tr>
+        #foreach($tablei_item in $tablei.getAsTableItem())
+          <td>$tablei_item</td>
+        #end
+        <td>
+            <form action="excluirPOST/${tablei.getId()}" method="POST">
+                <button type="submit">Apagar</button>
+            </form>
+        </td>
+        </tr>
+      #end
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>

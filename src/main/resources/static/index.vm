@@ -1,0 +1,20 @@
+#include( "static/layout.vm" )
+
+<h1>Projeto</h1>
+<section>
+    Esse projeto visa simular um banco de dados CRUD ficticio para as forças armadas<br>
+    Ele foi desenvolvido com SparkJava, Gson e OkHTTP no back-end e Templates do Velocity no front-end<br>
+    O API de localidades do IBGE foi utilizado internamente para o consumo de APIs externas<br>
+    Haveria um formulario HTML para criar no proprio site, porem isso sera posto no futuro
+</section>
+
+<h1>Informações</h1>
+<section>
+Codificado por Daniel Gomes Lipkin<br>
+Lecionado por Elberth de Moraes<br>
+Projeto para Escola INFNET<br>
+<a href="#">Repositório GitHub
+</section>
+
+</body>
+</html>

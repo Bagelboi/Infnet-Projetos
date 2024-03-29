@@ -1,0 +1,13 @@
+#include( "static/layout.vm" )
+
+<div class="container">
+    <form action="#" method="post">
+       #foreach($inputfield in $inputfields)
+        $inputfield
+       #end
+       <input type="submit" value="Criar">
+    </form>
+</div>
+
+</body>
+</html>
