@@ -85,7 +85,7 @@ public class Main {
         p.setBraco_id(b.getId());
         p.setCidade_id(1600303);
         System.out.println(Main.gsonInstance.toJson(p));
-        b.setNome("cock and balls squad");
+        b.setNome("cool squad");
         b.setComandante_id(c.getId());
         c.setNome("Comandante");
         c.setBraco_id(b.getId());
