@@ -129,7 +129,7 @@ Com criticas<br>
 ### Pagina de Cupons
 O primeiro cupom foi usado pelo usuario logado<br>
 <img src="https://i.imgur.com/Xh1F99w.png" width="56%"><br>
-
+</details>
 <details>
   <summary>Outros</summary>
 
@@ -172,5 +172,6 @@ O codigo esta na ramificação [css_loja_de_moda](https://github.com/Bagelboi/In
   <img src="https://i.imgur.com/hh6oLel.png" width="56%"><br>
   <img src="https://i.imgur.com/hjJfQ7t.png" width="56%"><br>
   <img src="https://i.imgur.com/AGzY6OF.png" width="56%"><br>
+  </details>
 
 </details>
