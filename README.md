@@ -10,7 +10,7 @@ Esse foi meu primeiro bloco e consideravelmente o mais dificil comparado ao rest
   https://play.google.com/store/apps/details?id=com.danielgomeslipkin.unhooked.app&pli=1
   
   ## O projeto
-  O projeto do bloco consistiu em criar um aplicativo hosteado na Play Store com anuncios, com integração ao Firebase e organizado com a metodologia SCRUM. Esse trabalho devia ser feito em <b>GRUPO</b>. A proposta do aplicativo é basicamente um rastreador de vicios pessoais, como cigarros, com o intuito de auxiliar o usuario para controlar ele.
+  O projeto do bloco consistiu em criar um aplicativo hosteado na Play Store com anuncios, com integração ao Firebase e organizado com a metodologia SCRUM. Esse trabalho, dado a complexidade, devia ser feito em grupo porem devido ao tamanho pequeno da turma e o fato de que minha dupla abandonou a Infnet no meio do processo, tornando ele muito mais arduoso que o esperado. A proposta do aplicativo é basicamente um rastreador de vicios pessoais, como cigarros, com o intuito de auxiliar o usuario para controlar ele.
 
   <b> NOTE QUE NÃO SOU PROFISSIONAL DE PSICANALISE OU PSICOTERAPIA E QUALQUER DADO IMPERATIVO PRESENTE NO PROJETO É SOMENTE POR RAZÕES DE TESTE E PROTOTIPO. </b>
 
@@ -47,16 +47,6 @@ Fatos circulam aleatoriamente, a frase em cima não.<br>
 
 <img src="https://i.imgur.com/yQBq9K4.png" width="30%"><br>
 Ao clica Adicionar Uso, voce seleciona uma data e adicione as horas usadas (TV por exemplo) ou unidades usadas (cigarros pro exemplo) naquela data. O aplicativo disponibilizara esses pontos de uso no Grafico e te dara uma Avaliação Geral de acordo com uma media arbitraria. Se por exemplo voce fumou 5 cigarros essa semana, sua avaliação sera "Boa".
-
-## Detalhes Técnicos
-### SCRUM
-<img src="https://i.imgur.com/Xgdmy6e.png" width="90%">
-
-### Realtime Database
-<img src="https://i.imgur.com/Fou6q6V.png" width="90%">
-
-### Firestore
-<img src="https://i.imgur.com/QyIqKd0.png" width="90%">
 </details>
 
 <details>
@@ -122,21 +112,65 @@ Ao clica Adicionar Uso, voce seleciona uma data e adicione as horas usadas (TV p
 
 ## Fotos
 ### Landing Page
-<img src="https://i.imgur.com/nOgBtEK.png" width="30%"><br>
-<img src="https://i.imgur.com/OeEmeQU.png" width="30%"><br>
+<img src="https://i.imgur.com/nOgBtEK.png" width="56%"><br>
+<img src="https://i.imgur.com/OeEmeQU.png" width="56%"><br>
 ### Busca
-<img src="https://i.imgur.com/8SBcrfc.png" width="30%"><br>
+<img src="https://i.imgur.com/8SBcrfc.png" width="56%"><br>
 ### Pagina do Livro
-<img src="https://i.\imgur.com/bJ8kItt.png" width="30%"><br>
+<img src="https://i.imgur.com/bJ8kItt.png" width="56%"><br>
+<img src="https://i.\imgur.com/bJ8kItt.png" width="56%"><br>
 Com criticas<br>
-<img src="https://i.imgur.com/JmksKXF.png" width="30%"><br>
+<img src="https://i.imgur.com/JmksKXF.png" width="56%"><br>
 ### Pagina do Usuario
-<img src="https://i.imgur.com/MpfGWJy.png" width="30%"><br>
-<img src="https://i.imgur.com/09Zkz7r.png" width="30%"><br>
+<img src="https://i.imgur.com/MpfGWJy.png" width="56%"><br>
+<img src="https://i.imgur.com/09Zkz7r.png" width="56%"><br>
 ### Ranking dos Livros
-<img src="https://i.imgur.com/6dHJJEc.png" width="30%"><br>
+<img src="https://i.imgur.com/6dHJJEc.png" width="56%"><br>
 ### Pagina de Cupons
 O primeiro cupom foi usado pelo usuario logado<br>
-<img src="https://i.imgur.com/Xh1F99w.png" width="30%"><br>
+<img src="https://i.imgur.com/Xh1F99w.png" width="56%"><br>
+
+<details>
+  <summary>Outros</summary>
+
+  ## Jogo da Memória
+  Trabalho final da disciplina de introdução á Javascript. Tem um placar para cada configuração de jogo e um foguinho que muda de rosto no topo dependendo da sua velocidade em acertar os pares.<br>
+
+O codigo esta na ramificação [js_jogo_de_advinha](https://github.com/Bagelboi/Infnet-Projetos/tree/js_jogo_de_advinha)
+
   
+  ### Estado Inicial
+  <img src="https://i.imgur.com/5C1SOkr.png" width="56%"><br>
+  ### Jogo em Processo
+  4 cartas por imagem, 2 cartas por par, 8 cartas total<br>
+  <img src="https://i.imgur.com/7n1vMRj.png" width="56%"><br>
+  ### Scoreboard em baixo
+  <img src="https://i.imgur.com/3i5kbMh.png" width="56%"><br>
+
+## GK Fashion
+O projeto final da disciplina de introdução á design de Front-End.<br>
+
+O codigo esta na ramificação [css_loja_de_moda](https://github.com/Bagelboi/Infnet-Projetos/tree/css_loja_de_moda)
+### Pagina Inicial
+<img src="https://i.imgur.com/GLjxclt.png" width="56%"><br>
+<img src="https://i.imgur.com/iGcWub1.png" width="56%"><br>
+### Pagina Sobre
+<img src="https://i.imgur.com/wKCvFGA.png" width="56%"><br>
+
+  ## Universo do Zé
+  O projeto final da disciplina de frameworks de Javascript foram 2 CRUDs basicos feitos em React e Vue. O feito em Vue foi um sistema de encarceramento e o feito em React foi uma loja de armas.<br>
+
+  Os códigos estão nas ramificações<br>
+  [js_reactjs_armas](https://github.com/Bagelboi/Infnet-Projetos/tree/js_reactjs_armas)<br>
+  [js_vuejs_prisao](https://github.com/Bagelboi/Infnet-Projetos/tree/js_vuejs_prisao)
+  
+  ### Cadeia do Zé (Vue)
+<img src="https://i.imgur.com/hh1n7v7.png" width="56%"><br>
+<img src="https://i.imgur.com/N9kQS0D.png" width="56%"><br>
+<img src="https://i.imgur.com/9RpPAq1.png" width="56%"><br>
+  ### Armamentos do Zé (React)
+  <img src="https://i.imgur.com/hh6oLel.png" width="56%"><br>
+  <img src="https://i.imgur.com/hjJfQ7t.png" width="56%"><br>
+  <img src="https://i.imgur.com/AGzY6OF.png" width="56%"><br>
+
 </details>
