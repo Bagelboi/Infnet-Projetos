@@ -1,0 +1,51 @@
+version: '3.8'
+
+services:
+  eureka-server:
+    image: yecl1/eureka-server:latest
+    container_name: eureka-server
+    ports:
+      - "8761:8761"
+    networks:
+      - net_eureka
+
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: saroot
+      MYSQL_DATABASE: devopsdb
+      MYSQL_USER: sa
+      MYSQL_PASSWORD: senha
+    ports:
+      - "3307:3307"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - net_eureka
+
+  devops-tp2:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: devops-tp2
+    depends_on:
+      - eureka-server
+      - mysql
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3307/devopsdb
+      SPRING_DATASOURCE_USERNAME: sa
+      SPRING_DATASOURCE_PASSWORD: senha
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:8761/eureka/
+    ports:
+      - "8080:8080"
+    networks:
+      - net_eureka
+
+volumes:
+  mysql_data:
+    external : true
+
+networks:
+  net_eureka:
+    external: true
