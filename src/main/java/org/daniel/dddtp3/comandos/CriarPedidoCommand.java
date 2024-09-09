@@ -14,8 +14,4 @@ public class CriarPedidoCommand extends BaseCommand {
         super(agg_id);
         item_ids = _item_ids;
     }
-    public CriarPedidoCommand(String agg_id) {
-        super(agg_id);
-        item_ids = Collections.emptyList();
-    }
 }
