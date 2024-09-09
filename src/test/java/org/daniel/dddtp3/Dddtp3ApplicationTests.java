@@ -1,0 +1,13 @@
+package org.daniel.dddtp3;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class Dddtp3ApplicationTests {
+
+	@Test
+	void contextLoads() {
+	}
+
+}
