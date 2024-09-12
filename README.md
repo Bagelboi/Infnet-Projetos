@@ -175,3 +175,18 @@ O codigo esta na ramificação [css_loja_de_moda](https://github.com/Bagelboi/In
   </details>
 
 </details>
+
+# Bloco de Interação Humano Computador
+<details>
+  <summary>Site de Atendimento Pediatrico Publico</summary>
+  ## O projeto
+  O projeto era um site do governo para gestão de atendimento pediatrico, usando as varias técnicas de IHC como visto no livro da Simone Barbosa. Talvez foi o projeto que mais me forço fora da minha zona de comforto no aspecto de que precisei entrevistar pessoas aleatórias na rua perto dos hospitais para ter uma ideia minima de como funcionava o sistema. 
+
+  ## Documentação
+  https://docs.google.com/document/d/1HvHB4ANvCppxleShT7f0dcxb3LtXXGDc4RMps80xtcw/edit?usp=sharing
+
+  ## Protótipo Interativo
+  https://www.figma.com/proto/2nAkfGsYK6MW4YBW0vrwR7/Sistema-de-Cadastro-da-Crian%C3%A7a-para-Atendimento-Pediatrico-em-Redes-Publicas
+
+  ## Fotos
+</details>
