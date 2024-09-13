@@ -1,4 +1,4 @@
-Projetos da Infnet
+# Projetos da Infnet
 Aqui estão projetos destacados que foram feitos no Instituto Infnet por mim ou em grupo durante os trimestres/blocos ja decorridos.
 
 # Bloco de Android
@@ -99,7 +99,7 @@ Ao clica Adicionar Uso, voce seleciona uma data e adicione as horas usadas (TV p
   <summary>4reads</summary>
   
   ## O projeto
-  O projeto do bloco consistiu em criar um site full-stack que utilizava o Firebase para atuar como banco de dados e o Vue para gerenciar o MVC.
+  O projeto do bloco consistiu em criar um site full-stack que utilizava o Firebase para atuar como banco de dados e o Vue para gerenciar o MVC com a metodologia XP (Extreme Programming).
   A ideia foi um site no estilo de Goodreads, onde você seria recompensado pontos por criticar, comentar, etc sobre os livros e lojistas ofereceriam cupons para quem quisesse gastar esses pontos e ganhar promoções na compra de livros. 
   E por mais que não esta completo tudo tudo tudo, estou bem orgulhoso do resultado inicial. Devo credito pela minha dupla Lucas Dias de Gondra.
   
@@ -194,14 +194,46 @@ O codigo esta na ramificação [css_loja_de_moda](https://github.com/Bagelboi/In
   <img src="https://i.imgur.com/stOecr9.png" width="56%"><br>
 </details>
 
-# Bloco de Frameworks Java
+# Bloco de Java
+<details>
+  <summary>Sistema de Gestão Academica</summary><br>
+  O projeto de bloco consistia em aprender á criar os varios diagramas da UML, como de caso de uso, de classe e de sequencia para depois implementar somente uma pequena parte em código com o Entity Framework do .NET. O projeto era um sistema de gestão academica replicando o modelo da INFNET.<br>
+  
+  ## Documento
+  https://docs.google.com/document/d/10G8Tgg3mmFNvkUtC91dZfotngbWnkmIXxd_lXwV1kVw/edit?usp=sharing
+  
+  ## Fotos
+  ### Diagrama de caso de uso
+  <img src="https://i.imgur.com/FhamdS4.png" width="56%"><br>
+  ### Diagrama de classe
+  <img src="https://i.imgur.com/ygQsHCv.png" width="56%"><br>
+  ### Diagrama de sequencia
+  <img src="https://i.imgur.com/gAjwCPX.png" width="56%"><br>
+  ### Código Principal
+  <img src="https://i.imgur.com/AmIedUy.png" width="56%"><br>
+  
+</details>
+
 <details>
   <summary>CRUD ficticio do exercito brasileiro</summary><br>
-  Um CRUD simples feito com o SparkJava, possuindo um front-end alem do back-end.<br>
-
+  Um CRUD simples feito com o SparkJava, possuindo um front-end de templates alem do back-end.<br><br>
+  O código esta na ramificação: java_crud_exercito (https://github.com/Bagelboi/Infnet-Projetos/tree/java_crud_exercito)<br>
+  
   ## Fotos
   <img src="https://i.imgur.com/Fwcm4GL.png" width="56%"><br>
   <img src="https://i.imgur.com/BKIri1l.png" width="56%"><br>
   <img src="https://i.imgur.com/CMbnHDW.png" width="56%"><br>
   <img src="https://i.imgur.com/2xn2wCy.png" width="56%"><br>
+</details>
+
+# Bloco de Python e SQL (TODO)
+<details>
+  <summary>Sistema de Chamados de T.I</summary><br>
+  O projeto de bloco consistia em criar um sistema de chamados baseado no GLPI e expor os dados como uma API para ser testada no Looker Studio com a projeção deles.<br>
+  https://replit.com/@DanielGomes58/SistemaChamadosPB
+</details>
+<details>
+  <summary>Sistema de Cadastro de Pessoa Fisica</summary><br>
+  Esse projeto consistia em criar um menu simples de cadastro de pessoas fisicas e expor os dados delas em uma API.<br>
+  https://replit.com/@DanielGomes58/Servidor-Cadastro-API
 </details>
