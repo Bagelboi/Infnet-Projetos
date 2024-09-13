@@ -101,8 +101,8 @@ Ao clica Adicionar Uso, voce seleciona uma data e adicione as horas usadas (TV p
   ## O projeto
   O projeto do bloco consistiu em criar um site full-stack que utilizava o Firebase para atuar como banco de dados e o Vue para gerenciar o MVC.
   A ideia foi um site no estilo de Goodreads, onde você seria recompensado pontos por criticar, comentar, etc sobre os livros e lojistas ofereceriam cupons para quem quisesse gastar esses pontos e ganhar promoções na compra de livros. 
-  E por mais que não esta completo tudo tudo tudo, estou bem orgulhoso do resultado inicial. Devo credito pela minha dupla Lucas Dias de Gondra, um estudante de Engenharia de Software com muito potencial.
-
+  E por mais que não esta completo tudo tudo tudo, estou bem orgulhoso do resultado inicial. Devo credito pela minha dupla Lucas Dias de Gondra.
+  
   ## Funcionalidades Completas
   - Login com Firebase
   - Dados armazenados no Firebase
@@ -178,9 +178,8 @@ O codigo esta na ramificação [css_loja_de_moda](https://github.com/Bagelboi/In
 
 # Bloco de Interação Humano Computador
 <details>
-  <summary>Site de Atendimento Pediatrico Publico</summary>
-  ## O projeto
-  O projeto era um site do governo para gestão de atendimento pediatrico, usando as varias técnicas de IHC como visto no livro da Simone Barbosa. Talvez foi o projeto que mais me forço fora da minha zona de comforto no aspecto de que precisei entrevistar pessoas aleatórias na rua perto dos hospitais para ter uma ideia minima de como funcionava o sistema. 
+  <summary>Site de Atendimento Pediatrico Publico</summary><br>
+  O projeto era um site do governo para gestão de atendimento pediatrico, usando as varias técnicas de IHC como visto no livro da Simone Barbosa. Talvez foi o projeto que mais me forço fora da minha zona de comforto no aspecto de que precisei entrevistar pessoas aleatórias na rua perto dos hospitais para ter uma ideia minima de como funcionava o sistema.<br>
 
   ## Documentação
   https://docs.google.com/document/d/1HvHB4ANvCppxleShT7f0dcxb3LtXXGDc4RMps80xtcw/edit?usp=sharing
@@ -189,4 +188,20 @@ O codigo esta na ramificação [css_loja_de_moda](https://github.com/Bagelboi/In
   https://www.figma.com/proto/2nAkfGsYK6MW4YBW0vrwR7/Sistema-de-Cadastro-da-Crian%C3%A7a-para-Atendimento-Pediatrico-em-Redes-Publicas
 
   ## Fotos
+  <img src="https://i.imgur.com/A7nr9ZQ.png" width="56%"><br>
+  <img src="https://i.imgur.com/JEEzYxx.png" width="56%"><br>
+  <img src="https://i.imgur.com/DuBjmRX.png" width="56%"><br>
+  <img src="https://i.imgur.com/stOecr9.png" width="56%"><br>
+</details>
+
+# Bloco de Frameworks Java
+<details>
+  <summary>CRUD ficticio do exercito brasileiro</summary><br>
+  Um CRUD simples feito com o SparkJava, possuindo um front-end alem do back-end.<br>
+
+  ## Fotos
+  <img src="https://i.imgur.com/Fwcm4GL.png" width="56%"><br>
+  <img src="https://i.imgur.com/BKIri1l.png" width="56%"><br>
+  <img src="https://i.imgur.com/CMbnHDW.png" width="56%"><br>
+  <img src="https://i.imgur.com/2xn2wCy.png" width="56%"><br>
 </details>
