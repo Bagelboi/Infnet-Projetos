@@ -1,5 +1,10 @@
 package org.daniel.ddd_at.petfriends_transporte.service;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import jakarta.annotation.PostConstruct;
+import lombok.extern.slf4j.Slf4j;
+import org.daniel.ddd_at.petfriends_transporte.model.CEP;
 import org.daniel.ddd_at.petfriends_transporte.model.Entrega;
 import org.daniel.ddd_at.petfriends_transporte.model.Entregador;
 import org.daniel.ddd_at.petfriends_transporte.repo.EntregadorRepository;
@@ -10,10 +15,11 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
-
+@Slf4j
 public class EntregadorService {
 
     @Autowired
@@ -32,6 +38,7 @@ public class EntregadorService {
 
     public Entregador update(BigDecimal id, Entregador updatedEntregador) {
         return repository.findById(id).map(entregador -> {
+            //entregador.setEntregas(updatedEntregador.getEntregas());
             entregador.setNome(updatedEntregador.getNome());
             return repository.save(entregador);
         }).orElseThrow(() -> new RuntimeException("Entregador não encontrado"));
@@ -61,15 +68,18 @@ public class EntregadorService {
     }
 
     public List<Entregador> getEntregadoresDisponiveis() {
-        return repository.findAll().stream().filter( entregador -> entregador.podeComecarPedido() ).toList();
+        return repository.findAll().stream().filter( entregador -> {
+            Set<Entrega> entregas = entregaService.getEntregasByEntregadorId(entregador.getId());
+            return entregador.podeComecarPedido(entregas);
+        } ).toList();
     }
 
     public void iniciarEntregasAntigasEsperando(BigDecimal entregador_id) {
         Entregador entregador = repository.findById(entregador_id).orElseThrow(() ->
                 new NoSuchElementException("Entregador não encontrado"));
-
-        List<Entrega> entregasAntigas = entregador.getEntregasMaisAntigasEsperando();
-        int max_entregas = Math.min( Entregador.max_entregas_ativas - entregador.getEntregasAtivas().size(), entregasAntigas.size() );
+        Set<Entrega> entregas = entregaService.getEntregasByEntregadorId(entregador_id);
+        List<Entrega> entregasAntigas = entregador.getEntregasMaisAntigasEsperando(entregas);
+        int max_entregas = Math.min( Entregador.max_entregas_ativas - entregador.getEntregasAtivas(entregas).size(), entregasAntigas.size() );
 
         if (max_entregas > 0) {
             entregasAntigas.subList(0, max_entregas).forEach(entrega -> {
@@ -78,5 +88,6 @@ public class EntregadorService {
         }
 
     }
+
 
 }

@@ -8,6 +8,7 @@ import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.daniel.ddd_at.petfriends_pedidos.events.PedidoEvent;
 import org.daniel.ddd_at.petfriends_pedidos.states.PedidoState;
 
 import java.io.Serializable;
@@ -37,7 +38,9 @@ public class Pedido implements Serializable {
         data = Timestamp.from(Instant.now());
     }
 
-
+    public PedidoEvent toEventObject() {
+        return new PedidoEvent(id, estado, cliente_id, items, data);
+    }
 
     public boolean pagamentoConfirmado() {
         if (estado == PedidoState.NOVO) {

@@ -6,15 +6,16 @@ import jakarta.validation.constraints.Null;
 import lombok.Data;
 import org.daniel.ddd_at.petfriends_transporte.states.EntregaState;
 import org.hibernate.annotations.Cascade;
-import org.hibernate.annotations.CascadeType;
+import jakarta.persistence.CascadeType;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.*;
 import java.util.stream.Collectors;
 
 @Entity
 @Data
-public class Entregador {
+public class Entregador implements Serializable {
     private static class EntregaDataComparator implements Comparator<Entrega> {
         @Override
         public int compare(Entrega e1, Entrega e2) {
@@ -27,28 +28,23 @@ public class Entregador {
     @GeneratedValue(strategy = GenerationType.AUTO)
     BigDecimal id;
     String nome;
-    @OneToMany(mappedBy = "entregador")
-    @Cascade( CascadeType.PERSIST )
-    @Nullable
-    Set<Entrega> entregas;
 
     public Entregador() {
         id = BigDecimal.ZERO;
         nome="";
-        entregas = new HashSet<>();
     }
 
-    public Set<Entrega> getEntregasAtivas() {
+    public Set<Entrega> getEntregasAtivas(Set<Entrega> entregas) {
         if (entregas != null)
             return entregas.stream().filter(entrega -> entrega.getEstado() == EntregaState.INCIADA).collect(Collectors.toSet());
         return new HashSet<>();
     }
 
-    public boolean podeComecarPedido() {
-        return getEntregasAtivas().size() < max_entregas_ativas;
+    public boolean podeComecarPedido(Set<Entrega> entregas) {
+        return getEntregasAtivas(entregas).size() < max_entregas_ativas;
     }
 
-    public List<Entrega> getEntregasMaisAntigasEsperando() {
+    public List<Entrega> getEntregasMaisAntigasEsperando(Set<Entrega> entregas) {
         List<Entrega> entregaList = new ArrayList<>();
         if (entregas != null)
             return entregas.stream().filter(entrega -> entrega.getEstado() == EntregaState.ESPERANDO).sorted(new EntregaDataComparator()).toList();

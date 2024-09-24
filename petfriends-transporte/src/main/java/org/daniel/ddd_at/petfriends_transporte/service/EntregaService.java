@@ -1,6 +1,10 @@
 package org.daniel.ddd_at.petfriends_transporte.service;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import jakarta.annotation.PostConstruct;
 import lombok.extern.slf4j.Slf4j;
+import org.daniel.ddd_at.petfriends_transporte.model.CEP;
 import org.daniel.ddd_at.petfriends_transporte.model.Entrega;
 import org.daniel.ddd_at.petfriends_transporte.repo.EntregaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,8 +13,10 @@ import org.springframework.stereotype.Service;
 import java.math.BigDecimal;
 import java.util.NoSuchElementException;
 import java.util.Optional;
+import java.util.Set;
 
 @Service
+@Slf4j
 public class EntregaService {
 
     @Autowired
@@ -38,6 +44,10 @@ public class EntregaService {
             return true;
         }
         return false;
+    }
+
+    public Set<Entrega> getEntregasByEntregadorId(BigDecimal id) {
+        return repository.findByEntregador_Id(id);
     }
 
     //Logica de Negócio
@@ -74,6 +84,5 @@ public class EntregaService {
             throw new IllegalStateException("Não é possível finalizar a entrega.");
         }
     }
-
 
 }

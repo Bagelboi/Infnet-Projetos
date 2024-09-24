@@ -12,3 +12,19 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.H2Dialect
+  cloud:
+    stream:
+      bindings:
+        pedidoEnviado-out-0:
+          destination: pedido-enviado-topic
+        almoxarifadoDespache-in-0:
+          destination: almoxarifado-despache-topic
+          group: ped-almoxarifado-queue
+        pedidoDespache-out-0:
+          destination: pedido-despache-topic
+        transporteEntregue-in-0:
+          destination: transporte-entregue-topic
+          group: ped-transporte-queue
+        cancelarPedido-in-0:
+          destination: pedido-cancelado-topic
+          group: ped-cancelado-queue

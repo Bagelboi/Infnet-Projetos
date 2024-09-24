@@ -7,22 +7,24 @@ import org.daniel.ddd_at.petfriends_transporte.states.EntregaState;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.time.Instant;
 
 @Entity
 @Data
-public class Entrega {
+public class Entrega implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     BigDecimal id;
     EntregaState estado;
     BigDecimal pedido_id;
     Timestamp data;
+    CEP cep;
     @ManyToOne
     @JoinColumn(name = "entregador_id")
-    @Nullable
+    //@Nullable
     Entregador entregador;
 
     public Entrega() {
