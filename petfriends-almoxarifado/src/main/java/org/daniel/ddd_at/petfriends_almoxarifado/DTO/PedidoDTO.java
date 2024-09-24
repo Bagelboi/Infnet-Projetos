@@ -6,7 +6,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.daniel.ddd_at.petfriends_almoxarifado.states.PedidoState;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -17,6 +16,5 @@ import java.util.Set;
 @NoArgsConstructor
 public class PedidoDTO implements Serializable {
     BigDecimal id;
-    PedidoState estado;
     Set<ItemPedidoDTO> items;
 }

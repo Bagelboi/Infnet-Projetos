@@ -9,7 +9,6 @@ import java.math.BigDecimal;
 @Data
 @NoArgsConstructor
 public class ItemPedidoDTO implements Serializable {
-    BigDecimal pedido_id;
     BigDecimal item_id;
     Integer quantia;
 }

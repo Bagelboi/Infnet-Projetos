@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 
@@ -20,6 +21,10 @@ public class ItemService {
 
     @Autowired
     private ItemRepository repository;
+
+    public List<Item> getAll() {
+        return repository.findAll();
+    }
 
     public Item create(Item item) {
         return repository.save(item);
@@ -55,17 +60,14 @@ public class ItemService {
             item.setEstoque( item.getEstoque() - quant );
             repository.save(item);
         } else {
-            throw new IllegalStateException("Não é retirar o estoque.");
+            throw new IllegalStateException("Não é possivel retirar o estoque.");
         }
     }
 
-    @PostConstruct
-    public void test() throws JsonProcessingException {
-        ObjectMapper obj = new ObjectMapper();
-        Item item = new Item();
-        item.setEstoque(1);
-        item.setPreco(DinheiroHelper.build(20.50));
-        item.setNome("Porra");
-        log.info( obj.writeValueAsString(create(item)));
+    public boolean podeRetirarEstoque(BigDecimal id, Integer quant) {
+        Optional<Item> item = repository.findById(id);
+
+        return item.isPresent() && item.get().possivelRetirarEstoque(quant);
     }
+
 }

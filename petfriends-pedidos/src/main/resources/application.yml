@@ -1,3 +1,6 @@
+server:
+  port: 8080
+
 spring:
   application:
     name: petfriends-pedidos
@@ -28,3 +31,10 @@ spring:
         cancelarPedido-in-0:
           destination: pedido-cancelado-topic
           group: ped-cancelado-queue
+        cancelarEntrega-out-0:
+          destination: entrega-cancelada-topic
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest

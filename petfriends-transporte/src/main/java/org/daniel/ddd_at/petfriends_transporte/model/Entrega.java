@@ -19,6 +19,7 @@ public class Entrega implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     BigDecimal id;
     EntregaState estado;
+    BigDecimal cliente_id;
     BigDecimal pedido_id;
     Timestamp data;
     CEP cep;
@@ -29,9 +30,9 @@ public class Entrega implements Serializable {
 
     public Entrega() {
         id = BigDecimal.ZERO;
-        estado = EntregaState.ESPERANDO;
         pedido_id = BigDecimal.ZERO;
         entregador = null;
+        estado = EntregaState.ESPERANDO;
         data = Timestamp.from(Instant.now());
     }
 

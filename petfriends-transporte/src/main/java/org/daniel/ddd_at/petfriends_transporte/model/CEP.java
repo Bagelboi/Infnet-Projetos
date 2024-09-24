@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.text.DecimalFormat;
+import java.util.Random;
 
 @Getter
 public class CEP {
@@ -15,7 +16,13 @@ public class CEP {
         prefixo = 0;
         sufixo = 0;
     }
-
+    public static CEP randomCEP() {
+        CEP cep = new CEP();
+        Random rand = new Random();
+        cep.setPrefixo(rand.nextInt( 0, 99999 ) );
+        cep.setSufixo(rand.nextInt( 0, 999 ) );
+        return cep;
+    }
     public void setPrefixo(Integer value) {
         this.prefixo = Math.min(99999, value);
     }

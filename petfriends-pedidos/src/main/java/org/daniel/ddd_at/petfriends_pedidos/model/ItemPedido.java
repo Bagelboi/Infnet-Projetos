@@ -10,7 +10,6 @@ import java.math.BigDecimal;
 @Data
 @NoArgsConstructor
 public class ItemPedido implements Serializable {
-    BigDecimal pedido_id;
     BigDecimal item_id;
     Integer quantia;
 }

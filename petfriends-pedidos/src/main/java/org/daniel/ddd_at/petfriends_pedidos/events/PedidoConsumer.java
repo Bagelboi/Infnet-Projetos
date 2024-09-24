@@ -1,36 +1,35 @@
 package org.daniel.ddd_at.petfriends_pedidos.events;
 
-import org.daniel.ddd_at.petfriends_pedidos.model.Pedido;
 import org.daniel.ddd_at.petfriends_pedidos.service.PedidoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
-import org.springframework.stereotype.Service;
+import org.springframework.context.annotation.Configuration;
 
 import java.util.function.Consumer;
 
-@Service
+@Configuration
 public class PedidoConsumer {
     @Autowired
     PedidoService pedidoService;
 
     @Bean
-    public Consumer<Pedido> almoxarifadoDespache() {
+    public Consumer<PedidoAlmoxarifadoEvent> almoxarifadoDespache() {
         return pedido -> {
-            pedidoService.despacharPedido(pedido.getId());
+            pedidoService.despacharPedido(pedido.id());
         };
     }
 
     @Bean
-    public Consumer<Pedido> transporteEntregue() {
+    public Consumer<PedidoTransporteEvent> transporteEntregue() {
         return pedido -> {
-            pedidoService.marcarPedidoComoRecebido(pedido.getId());
+            pedidoService.marcarPedidoComoRecebido(pedido.id());
         };
     }
 
     @Bean
-    public Consumer<Pedido> cancelarPedido() {
+    public Consumer<PedidoCancelarEvent> cancelarPedido() {
         return pedido -> {
-            pedidoService.cancelarPedido(pedido.getId());
+            pedidoService.cancelarPedido(pedido.id());
         };
     }
 }

@@ -1,5 +1,6 @@
 package org.daniel.ddd_at.petfriends_almoxarifado.model;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -24,6 +25,7 @@ public class Item {
     BigDecimal id;
     Integer estoque;
     String nome;
+    @JsonSerialize(using = DinheiroHelper.MoneySerializer.class)
     Money preco;
 
     public Item() {
@@ -31,6 +33,15 @@ public class Item {
         estoque = 0;
         nome = "";
         preco = DinheiroHelper.build(0.0);
+    }
+
+    public static Item New(BigDecimal id, Integer estoque, String nome, double preco) {
+        Item item = new Item();
+        item.setId(id);
+        item.setNome(nome);
+        item.setEstoque(estoque);
+        item.setPreco(DinheiroHelper.build(preco));
+        return item;
     }
 
     public boolean emEstoque() {

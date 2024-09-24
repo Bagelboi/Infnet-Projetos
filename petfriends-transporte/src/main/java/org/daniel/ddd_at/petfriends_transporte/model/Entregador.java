@@ -34,6 +34,13 @@ public class Entregador implements Serializable {
         nome="";
     }
 
+    public static Entregador New(BigDecimal id, String nome) {
+        Entregador entregador = new Entregador();
+        entregador.setId(id);
+        entregador.setNome(nome);
+        return entregador;
+    }
+
     public Set<Entrega> getEntregasAtivas(Set<Entrega> entregas) {
         if (entregas != null)
             return entregas.stream().filter(entrega -> entrega.getEstado() == EntregaState.INCIADA).collect(Collectors.toSet());

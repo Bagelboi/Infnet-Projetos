@@ -1,12 +1,8 @@
 package org.daniel.ddd_at.petfriends_pedidos.service;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import jakarta.annotation.PostConstruct;
 import lombok.extern.slf4j.Slf4j;
-import org.daniel.ddd_at.petfriends_pedidos.events.PedidoEvent;
+import org.daniel.ddd_at.petfriends_pedidos.events.PedidoCancelarEntregaEvent;
 import org.daniel.ddd_at.petfriends_pedidos.events.PedidoPublisher;
-import org.daniel.ddd_at.petfriends_pedidos.model.ItemPedido;
 import org.daniel.ddd_at.petfriends_pedidos.model.Pedido;
 import org.daniel.ddd_at.petfriends_pedidos.repo.PedidoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.util.HashSet;
+import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 
@@ -26,6 +23,10 @@ public class PedidoService {
 
     @Autowired
     PedidoPublisher pedidoPublisher;
+
+    public List<Pedido> getAll() {
+        return repository.findAll();
+    }
 
     public Pedido create(Pedido pedido) {
         Pedido pedido_novo = repository.save(pedido);
@@ -72,7 +73,7 @@ public class PedidoService {
 
         if (pedido.podeProcessar() && pedido.enviar()) {
             Pedido pedido_env = repository.save(pedido);
-            pedidoPublisher.pedidoEnviado().apply(pedido_env.toEventObject());
+            pedidoPublisher.pedidoEnviado().apply(pedido_env.toAlmoxarifadoEventObject());
         } else {
             throw new IllegalStateException("Não é possível enviar o pedido.");
         }
@@ -83,6 +84,7 @@ public class PedidoService {
                 new NoSuchElementException("Pedido não encontrado"));
 
         if (pedido.podeProcessar() && pedido.cancelar()) {
+            pedidoPublisher.cancelarEntrega().apply( new PedidoCancelarEntregaEvent(pedido.getId(), pedido.getCliente_id()));
             repository.save(pedido);
         } else {
             throw new IllegalStateException("Não é possível cancelar o pedido.");
@@ -96,7 +98,7 @@ public class PedidoService {
         if (pedido.podeProcessar() && pedido.despachar()) {
             Pedido pedido_despachado = repository.save(pedido);
             pedido_despachado.setItems( new HashSet<>() );
-            pedidoPublisher.pedidoDespache().apply(pedido_despachado.toEventObject());
+            pedidoPublisher.pedidoDespache().apply(pedido_despachado.toTransporteEventObject());
         } else {
             throw new IllegalStateException("Não é possível despachar o pedido.");
         }
@@ -112,19 +114,4 @@ public class PedidoService {
             throw new IllegalStateException("Não é possível marcar o pedido como recebido.");
         }
     }
-/*
-    @PostConstruct
-    public void test() throws JsonProcessingException {
-        ObjectMapper obj = new ObjectMapper();
-        Pedido ped = new Pedido();
-        ItemPedido puta = new ItemPedido();
-        puta.setPedido_id(BigDecimal.ONE);
-        puta.setItem_id(BigDecimal.TEN);
-        puta.setQuantia(1);
-        ped.getItems().add(puta);
-        create(ped);
-        create(ped);
-        log.info( obj.writeValueAsString( repository.findAll() ));
-    }
- */
 }

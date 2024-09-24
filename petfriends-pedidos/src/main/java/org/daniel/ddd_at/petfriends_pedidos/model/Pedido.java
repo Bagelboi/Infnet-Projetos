@@ -1,19 +1,17 @@
 package org.daniel.ddd_at.petfriends_pedidos.model;
 
-import jakarta.annotation.Nullable;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.validation.constraints.NotNull;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.daniel.ddd_at.petfriends_pedidos.events.PedidoEvent;
+import org.daniel.ddd_at.petfriends_pedidos.events.PedidoAlmoxarifadoEvent;
+import org.daniel.ddd_at.petfriends_pedidos.events.PedidoCancelarEvent;
+import org.daniel.ddd_at.petfriends_pedidos.events.PedidoTransporteEvent;
 import org.daniel.ddd_at.petfriends_pedidos.states.PedidoState;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.sql.Time;
 import java.sql.Timestamp;
 import java.time.Instant;
 import java.util.HashSet;
@@ -38,8 +36,16 @@ public class Pedido implements Serializable {
         data = Timestamp.from(Instant.now());
     }
 
-    public PedidoEvent toEventObject() {
-        return new PedidoEvent(id, estado, cliente_id, items, data);
+    public PedidoAlmoxarifadoEvent toAlmoxarifadoEventObject() {
+        return new PedidoAlmoxarifadoEvent(id, items);
+    }
+
+    public PedidoTransporteEvent toTransporteEventObject() {
+        return new PedidoTransporteEvent(id, cliente_id);
+    }
+
+    public PedidoCancelarEvent toSimpleEventObject() {
+        return new PedidoCancelarEvent(id);
     }
 
     public boolean pagamentoConfirmado() {

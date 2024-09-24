@@ -22,7 +22,7 @@ public class ItemPedidoConverter implements AttributeConverter<Set<ItemPedido>, 
         }
 
         return itemPedidoSet.stream()
-                .map(itemPedido -> itemPedido.getPedido_id() + FIELD_DELIMITER +
+                .map(itemPedido ->
                         itemPedido.getItem_id() + FIELD_DELIMITER +
                         itemPedido.getQuantia())
                 .collect(Collectors.joining(ITEM_DELIMITER));
@@ -40,9 +40,8 @@ public class ItemPedidoConverter implements AttributeConverter<Set<ItemPedido>, 
         for (String item : items) {
             String[] data = item.split(FIELD_DELIMITER);
             ItemPedido newItem = new ItemPedido();
-            newItem.setPedido_id(new BigDecimal(data[0]));
-            newItem.setItem_id(new BigDecimal(data[1]));
-            newItem.setQuantia(Integer.parseInt(data[2]));
+            newItem.setItem_id(new BigDecimal(data[0]));
+            newItem.setQuantia(Integer.parseInt(data[1]));
             itemPedidoSet.add(newItem);
         }
 

@@ -4,6 +4,9 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.annotation.PostConstruct;
 import lombok.extern.slf4j.Slf4j;
+import org.daniel.ddd_at.petfriends_transporte.events.PedidoEvent;
+import org.daniel.ddd_at.petfriends_transporte.events.PedidoTransporteEvent;
+import org.daniel.ddd_at.petfriends_transporte.events.TransportePublisher;
 import org.daniel.ddd_at.petfriends_transporte.model.CEP;
 import org.daniel.ddd_at.petfriends_transporte.model.Entrega;
 import org.daniel.ddd_at.petfriends_transporte.repo.EntregaRepository;
@@ -11,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 import java.util.Set;
@@ -21,6 +25,13 @@ public class EntregaService {
 
     @Autowired
     private EntregaRepository repository;
+
+    @Autowired
+    TransportePublisher transportePublisher;
+
+    public List<Entrega> getAll() {
+        return repository.findAll();
+    }
 
     public Entrega create(Entrega Entrega) {
         return repository.save(Entrega);
@@ -52,6 +63,14 @@ public class EntregaService {
 
     //Logica de Negócio
 
+    public Entrega criarEntregaParaPedido(PedidoEvent pedido, CEP cep) {
+        Entrega entrega = new Entrega();
+        entrega.setPedido_id(pedido.id());
+        entrega.setCep(cep);
+        entrega.setCliente_id(pedido.cliente_id());
+        return create(entrega);
+    }
+
     public void iniciarEntrega(BigDecimal id) {
         Entrega entrega = repository.findById(id).orElseThrow(() ->
                 new NoSuchElementException("Entrega não encontrada"));
@@ -79,6 +98,7 @@ public class EntregaService {
                 new NoSuchElementException("Entrega não encontrada"));
 
         if (entrega.podeAlterar() && entrega.finalizarEntrega()) {
+            transportePublisher.transporteEntregue().apply( new PedidoTransporteEvent( entrega.getPedido_id() ));
             repository.save(entrega);
         } else {
             throw new IllegalStateException("Não é possível finalizar a entrega.");
