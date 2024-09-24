@@ -1,5 +1,7 @@
 package org.daniel.ddd_at.petfriends_almoxarifado.events;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.stream.function.StreamBridge;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.Message;
@@ -11,14 +13,16 @@ import java.util.function.Function;
 @Configuration
 public class AlmoxarifadoPublisher {
 
-    @Bean
-    public Function<PedidoAlmoxarifadoEvent, Message<PedidoAlmoxarifadoEvent>> almoxarifadoDespache() {
-        return pedidoAlmoxarifadoEvent -> MessageBuilder.withPayload(pedidoAlmoxarifadoEvent).build();
+    @Autowired
+    private StreamBridge streamBridge;
+
+    public void sendAlmoxarifadoDespache(PedidoAlmoxarifadoEvent pedido) {
+        Message<PedidoAlmoxarifadoEvent> message = MessageBuilder.withPayload(pedido).build();
+        streamBridge.send("almoxarifadoDespache-out-0", message);
     }
 
-    @Bean
-    public Function<PedidoAlmoxarifadoCancelarEvent, Message<PedidoAlmoxarifadoCancelarEvent>> cancelarPedido() {
-        return pedidoAlmoxarifadoEvent -> MessageBuilder.withPayload(pedidoAlmoxarifadoEvent).build();
+    public void sendCancelarPedido(PedidoAlmoxarifadoCancelarEvent pedido) {
+        Message<PedidoAlmoxarifadoCancelarEvent> message = MessageBuilder.withPayload(pedido).build();
+        streamBridge.send("cancelarPedido-out-0", message);
     }
-
 }

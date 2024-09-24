@@ -73,7 +73,8 @@ public class PedidoService {
 
         if (pedido.podeProcessar() && pedido.enviar()) {
             Pedido pedido_env = repository.save(pedido);
-            pedidoPublisher.pedidoEnviado().apply(pedido_env.toAlmoxarifadoEventObject());
+           // pedidoPublisher.pedidoEnviado().apply(pedido_env.toAlmoxarifadoEventObject());
+            pedidoPublisher.sendPedidoEnviado(pedido_env.toAlmoxarifadoEventObject());
         } else {
             throw new IllegalStateException("Não é possível enviar o pedido.");
         }
@@ -84,7 +85,8 @@ public class PedidoService {
                 new NoSuchElementException("Pedido não encontrado"));
 
         if (pedido.podeProcessar() && pedido.cancelar()) {
-            pedidoPublisher.cancelarEntrega().apply( new PedidoCancelarEntregaEvent(pedido.getId(), pedido.getCliente_id()));
+            //pedidoPublisher.cancelarEntrega().apply( new PedidoCancelarEntregaEvent(pedido.getId(), pedido.getCliente_id()));
+            pedidoPublisher.sendCancelarEntrega(new PedidoCancelarEntregaEvent(pedido.getId(), pedido.getCliente_id()));
             repository.save(pedido);
         } else {
             throw new IllegalStateException("Não é possível cancelar o pedido.");
@@ -94,11 +96,12 @@ public class PedidoService {
     public void despacharPedido(BigDecimal id) {
         Pedido pedido = repository.findById(id).orElseThrow(() ->
                 new NoSuchElementException("Pedido não encontrado"));
-
+        log.info("despachando {}", id);
         if (pedido.podeProcessar() && pedido.despachar()) {
             Pedido pedido_despachado = repository.save(pedido);
             pedido_despachado.setItems( new HashSet<>() );
-            pedidoPublisher.pedidoDespache().apply(pedido_despachado.toTransporteEventObject());
+            //pedidoPublisher.pedidoDespache().apply(pedido_despachado.toTransporteEventObject());
+            pedidoPublisher.sendPedidoDespache(pedido_despachado.toTransporteEventObject());
         } else {
             throw new IllegalStateException("Não é possível despachar o pedido.");
         }

@@ -16,6 +16,8 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.H2Dialect
   cloud:
+    function:
+      definition: almoxarifadoDespache;transporteEntregue;cancelarPedido
     stream:
       bindings:
         pedidoEnviado-out-0:

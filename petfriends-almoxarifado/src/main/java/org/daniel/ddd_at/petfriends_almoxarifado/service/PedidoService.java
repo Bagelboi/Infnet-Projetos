@@ -48,10 +48,12 @@ public class PedidoService {
     }
 
     public void despacharPedidoEvento(PedidoDTO pedido) {
-        almoxarifadoPublisher.almoxarifadoDespache().apply( new PedidoAlmoxarifadoEvent(pedido.getId()));
+       //almoxarifadoPublisher.almoxarifadoDespache().apply( new PedidoAlmoxarifadoEvent(pedido.getId()));
+        almoxarifadoPublisher.sendAlmoxarifadoDespache(new PedidoAlmoxarifadoEvent(pedido.getId()));
     }
 
     public void cancelarPedido(PedidoDTO pedido) {
-        almoxarifadoPublisher.cancelarPedido().apply( new PedidoAlmoxarifadoCancelarEvent(pedido.getId()));
+       // almoxarifadoPublisher.cancelarPedido().apply( new PedidoAlmoxarifadoCancelarEvent(pedido.getId()));
+        almoxarifadoPublisher.sendCancelarPedido(new PedidoAlmoxarifadoCancelarEvent(pedido.getId()));
     }
 }

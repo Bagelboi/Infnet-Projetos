@@ -22,6 +22,8 @@ public class Entrega implements Serializable {
     BigDecimal cliente_id;
     BigDecimal pedido_id;
     Timestamp data;
+    @Nullable
+    Timestamp entregue_em;
     CEP cep;
     @ManyToOne
     @JoinColumn(name = "entregador_id")
@@ -34,6 +36,7 @@ public class Entrega implements Serializable {
         entregador = null;
         estado = EntregaState.ESPERANDO;
         data = Timestamp.from(Instant.now());
+        entregue_em = null;
     }
 
     public boolean iniciarEntrega() {
@@ -54,6 +57,7 @@ public class Entrega implements Serializable {
 
     public boolean finalizarEntrega() {
         if (estado == EntregaState.INCIADA) {
+            entregue_em = Timestamp.from(Instant.now());
             estado = EntregaState.FINALIZADA;
             return true;
         }

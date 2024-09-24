@@ -98,7 +98,8 @@ public class EntregaService {
                 new NoSuchElementException("Entrega não encontrada"));
 
         if (entrega.podeAlterar() && entrega.finalizarEntrega()) {
-            transportePublisher.transporteEntregue().apply( new PedidoTransporteEvent( entrega.getPedido_id() ));
+            //transportePublisher.transporteEntregue().apply( new PedidoTransporteEvent( entrega.getPedido_id() ));
+            transportePublisher.sendTransporteEntregue(new PedidoTransporteEvent(entrega.getPedido_id()));
             repository.save(entrega);
         } else {
             throw new IllegalStateException("Não é possível finalizar a entrega.");

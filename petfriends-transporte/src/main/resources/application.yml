@@ -18,6 +18,8 @@ spring:
 
 
   cloud:
+    function:
+      definition: pedidoDespache;cancelarEntrega
     stream:
       bindings:
         pedidoDespache-in-0:
