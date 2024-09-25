@@ -26,7 +26,6 @@ public class PedidoService {
     AlmoxarifadoPublisher almoxarifadoPublisher;
 
     public void despacharPedido(PedidoDTO pedido) {
-        log.info("recebendo evento {}", pedido);
         HashMap<BigDecimal, Integer> itemsToRetirar = new HashMap<>();
         for (ItemPedidoDTO item_pedido : pedido.getItems()) {
             Optional<Item> optionalItem = itemService.getById(item_pedido.getItem_id());
@@ -49,11 +48,14 @@ public class PedidoService {
 
     public void despacharPedidoEvento(PedidoDTO pedido) {
        //almoxarifadoPublisher.almoxarifadoDespache().apply( new PedidoAlmoxarifadoEvent(pedido.getId()));
+        log.info("Despachando pedido {}", pedido);
         almoxarifadoPublisher.sendAlmoxarifadoDespache(new PedidoAlmoxarifadoEvent(pedido.getId()));
     }
 
     public void cancelarPedido(PedidoDTO pedido) {
        // almoxarifadoPublisher.cancelarPedido().apply( new PedidoAlmoxarifadoCancelarEvent(pedido.getId()));
+        log.info("Cancelando pedido {}", pedido);
         almoxarifadoPublisher.sendCancelarPedido(new PedidoAlmoxarifadoCancelarEvent(pedido.getId()));
     }
 }
+

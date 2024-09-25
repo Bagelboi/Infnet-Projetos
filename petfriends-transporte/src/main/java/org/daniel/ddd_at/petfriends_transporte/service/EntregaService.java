@@ -33,8 +33,8 @@ public class EntregaService {
         return repository.findAll();
     }
 
-    public Entrega create(Entrega Entrega) {
-        return repository.save(Entrega);
+    public Entrega create(Entrega entrega) {
+        return repository.save(entrega);
     }
 
     public Optional<Entrega> getById(BigDecimal id) {
@@ -68,7 +68,9 @@ public class EntregaService {
         entrega.setPedido_id(pedido.id());
         entrega.setCep(cep);
         entrega.setCliente_id(pedido.cliente_id());
-        return create(entrega);
+        Entrega entrega_criada = create(entrega);
+        log.info("Entrega criada {}", entrega_criada);
+        return entrega_criada;
     }
 
     public void iniciarEntrega(BigDecimal id) {
@@ -76,6 +78,7 @@ public class EntregaService {
                 new NoSuchElementException("Entrega não encontrada"));
 
         if (entrega.podeAlterar() && entrega.iniciarEntrega()) {
+            log.info("Entrega iniciada {}", id);
             repository.save(entrega);
         } else {
             throw new IllegalStateException("Não é possível iniciar a entrega.");
@@ -87,6 +90,7 @@ public class EntregaService {
                 new NoSuchElementException("Entrega não encontrada"));
 
         if (entrega.podeAlterar() && entrega.cancelarEntrega()) {
+            log.info("Entrega cancelada {}", id);
             repository.save(entrega);
         } else {
             throw new IllegalStateException("Não é possível cancelar a entrega.");
@@ -99,6 +103,7 @@ public class EntregaService {
 
         if (entrega.podeAlterar() && entrega.finalizarEntrega()) {
             //transportePublisher.transporteEntregue().apply( new PedidoTransporteEvent( entrega.getPedido_id() ));
+            log.info("Entrega finalizada {}", id);
             transportePublisher.sendTransporteEntregue(new PedidoTransporteEvent(entrega.getPedido_id()));
             repository.save(entrega);
         } else {

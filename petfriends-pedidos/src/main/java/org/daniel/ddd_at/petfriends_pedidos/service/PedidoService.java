@@ -30,6 +30,7 @@ public class PedidoService {
 
     public Pedido create(Pedido pedido) {
         Pedido pedido_novo = repository.save(pedido);
+        log.info("Pedido criado {}", pedido);
         return pedido_novo;
     }
 
@@ -61,6 +62,7 @@ public class PedidoService {
                 new NoSuchElementException("Pedido não encontrado"));
 
         if (pedido.podeProcessar() && pedido.pagamentoConfirmado()) {
+            log.info("Pagamento confirmado {}", id);
             repository.save(pedido);
         } else {
             throw new IllegalStateException("Não é possível confirmar o pagamento.");
@@ -74,6 +76,7 @@ public class PedidoService {
         if (pedido.podeProcessar() && pedido.enviar()) {
             Pedido pedido_env = repository.save(pedido);
            // pedidoPublisher.pedidoEnviado().apply(pedido_env.toAlmoxarifadoEventObject());
+            log.info("Pedido enviado {}", id);
             pedidoPublisher.sendPedidoEnviado(pedido_env.toAlmoxarifadoEventObject());
         } else {
             throw new IllegalStateException("Não é possível enviar o pedido.");
@@ -86,6 +89,7 @@ public class PedidoService {
 
         if (pedido.podeProcessar() && pedido.cancelar()) {
             //pedidoPublisher.cancelarEntrega().apply( new PedidoCancelarEntregaEvent(pedido.getId(), pedido.getCliente_id()));
+            log.info("Pedido cancelado {}", id);
             pedidoPublisher.sendCancelarEntrega(new PedidoCancelarEntregaEvent(pedido.getId(), pedido.getCliente_id()));
             repository.save(pedido);
         } else {
@@ -96,8 +100,8 @@ public class PedidoService {
     public void despacharPedido(BigDecimal id) {
         Pedido pedido = repository.findById(id).orElseThrow(() ->
                 new NoSuchElementException("Pedido não encontrado"));
-        log.info("despachando {}", id);
         if (pedido.podeProcessar() && pedido.despachar()) {
+            log.info("Pedido despachado {}", id);
             Pedido pedido_despachado = repository.save(pedido);
             pedido_despachado.setItems( new HashSet<>() );
             //pedidoPublisher.pedidoDespache().apply(pedido_despachado.toTransporteEventObject());
@@ -112,6 +116,7 @@ public class PedidoService {
                 new NoSuchElementException("Pedido não encontrado"));
 
         if (pedido.podeProcessar() && pedido.recebido()) {
+            log.info("Pedido recebido {}", id);
             repository.save(pedido);
         } else {
             throw new IllegalStateException("Não é possível marcar o pedido como recebido.");

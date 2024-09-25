@@ -61,6 +61,7 @@ public class EntregadorService {
         Entrega entrega = entregaService.getById(entrega_id).orElseThrow(() ->
                 new NoSuchElementException("Entrega não encontrada"));
         if (entrega.getEntregador() == null || !entrega.getEntregador().getId().equals(entregador_id)) {
+            log.info("Entregador {} vai entregar {}", entregador_id, entrega_id);
             entrega.setEntregador(entregador);
             entregaService.update(entrega_id, entrega);
         } else {

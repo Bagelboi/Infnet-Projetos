@@ -57,6 +57,7 @@ public class ItemService {
                 new NoSuchElementException("Item não encontrado"));
 
         if (item.possivelRetirarEstoque(quant)) {
+            log.info("Estoque {} retirado {} -> {}", id, item.getEstoque(), item.getEstoque()-quant);
             item.setEstoque( item.getEstoque() - quant );
             repository.save(item);
         } else {
