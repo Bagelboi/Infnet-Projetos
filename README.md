@@ -226,14 +226,34 @@ O codigo esta na ramificação [css_loja_de_moda](https://github.com/Bagelboi/In
   <img src="https://i.imgur.com/2xn2wCy.png" width="56%"><br>
 </details>
 
-# Bloco de Python e SQL (TODO)
+# Bloco de Python e SQL
 <details>
   <summary>Sistema de Chamados de T.I</summary><br>
   O projeto de bloco consistia em criar um sistema de chamados baseado no GLPI e expor os dados como uma API para ser testada no Looker Studio com a projeção deles.<br>
   https://replit.com/@DanielGomes58/SistemaChamadosPB
+
+  ## Fotos
+  ### Relações de Entidades do Banco de Dados
+  <img src="https://i.imgur.com/q6HgxKM.png"  width="56%"><br>
+  ### Código rodando
+  <img src="https://i.imgur.com/L0EzRgd.png"  width="56%"><br>
+  ### Looker Studio
+  <img src="https://i.imgur.com/q3eQGa2.png"  width="56%"><br>
+  <img src="https://i.imgur.com/Q5iy4Dq.png"  width="56%"><br>
+  <img src="https://i.imgur.com/YpMF1oZ.png"  width="56%"><br>
+  
 </details>
 <details>
   <summary>Sistema de Cadastro de Pessoa Fisica</summary><br>
-  Esse projeto consistia em criar um menu simples de cadastro de pessoas fisicas e expor os dados delas em uma API.<br>
+  Esse projeto inicialmente consistia em criar um menu simples de cadastro de pessoas fisicas. Depois se tornou uma API qual voce pode fazer requisições POST e GET para criar ou retornar registros de pessoas fisicas.<br>
   https://replit.com/@DanielGomes58/Servidor-Cadastro-API
+  
+  ## Fotos
+  ### Versão Inicial
+  <img src="https://i.imgur.com/SNTrBMa.png"  width="56%"><br>
+
+  ### Forma de API
+  <img src="https://i.imgur.com/fEr0BpM.png"  width="56%"><br>
+  <img src="https://i.imgur.com/RFlGu8e.png"  width="56%"><br>
+  
 </details>
