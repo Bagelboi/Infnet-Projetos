@@ -230,7 +230,8 @@ O codigo esta na ramificação [css_loja_de_moda](https://github.com/Bagelboi/In
 <details>
   <summary>Sistema de Chamados de T.I</summary><br>
   O projeto de bloco consistia em criar um sistema de chamados baseado no GLPI e expor os dados como uma API para ser testada no Looker Studio com a projeção deles.<br>
-  https://replit.com/@DanielGomes58/SistemaChamadosPB
+  Código (https://replit.com/@DanielGomes58/SistemaChamadosPB) <br>
+  Apresentação (https://www.youtube.com/watch?v=CfFDJi58FGU) <br>
 
   ## Fotos
   ### Relações de Entidades do Banco de Dados
@@ -257,3 +258,45 @@ O codigo esta na ramificação [css_loja_de_moda](https://github.com/Bagelboi/In
   <img src="https://i.imgur.com/RFlGu8e.png"  width="56%"><br>
   
 </details>
+
+# Bloco de Software Escalaveis (DDD, Springboot, Docker, Kubernetes, CI/CD, RabbitMQ, Axon, Logging)
+<details>
+  <summary>Blog de Projetos de Alunos</summary><br>
+  Esse projeto foi idealizado como um CRUD de projetos e os micro-serviços dentro desses. Foi criado um front-end com React e o back-end com varios microserviços feitos com Springboot + RabbitMQ + Papertrail e finalmente plantados no Docker. <br>
+  
+## Repositórios de Github
+- https://github.com/Bagelboi/ProjetoDeBlocoEscalaveis - Configurações do docker-compose e módulos do projeto<br>
+- https://github.com/DemarchiWorking/EurekaServer/tree/main - Servidor Eureka<br>
+- https://github.com/Bagelboi/GatewayServicePB/tree/main - Serviço Gateway<br>
+- https://github.com/DemarchiWorking/service-java-micro/tree/main - Serviço “Principal” e base de dados dos Services dos Projetos<br>
+- https://github.com/DemarchiWorking/project-java-micro/tree/main - Serviço e base de dados dos Projetos<br>
+- https://github.com/Bagelboi/Microservico-Comentarios-PB/tree/main - Serviço e base de dados de Comentarios nos Projetos<br>
+- https://github.com/Bagelboi/alunoservice - Serviço e base de dados dos Alunos<br>
+
+## Documento
+https://docs.google.com/document/d/1HexdV6lmsqyBF55LbcLb755F42io3OKc9daZSnBZLTk/edit?usp=sharing
+
+## Apresentação
+https://www.youtube.com/watch?v=y-3Xjj4SoZQ
+
+</details>
+
+<details>
+  <summary>DDD</summary><br>
+  Essa matéria consistiu no aprendizado da metodologia de Domain Driven Design (DDD). Em geral, a matéria rodou em torno de um projeto de petshop ficticia chamada Petfriends.<br>
+
+  ## Design Estratégico (Planejamento e Classificação dos Dominios do negócio)
+  Documento (https://docs.google.com/document/d/1xVhFt8gZ5s2lKRlYX6i4EIqtPNjBulUYxQMV26h4iIo/edit?usp=sharing)
+  ### Mapa de Contextos
+  <img src="https://i.imgur.com/X2D91K0.png"  width="56%"><br>
+  ### Diagrama de Classe dos Agregados
+  <img src="https://i.imgur.com/KpP5sF4.png" width="56%"><br>
+
+  ## Design Tatico (Implementação em Código)
+  Foi considerado usar Axon para praticar Event Sourcing só que por questões de agilidade foi melhor usar o RabbitMQ para testar os eventos de dominio.<br>
+  Repositório (https://github.com/Bagelboi/Infnet-Projetos/tree/sistema_petfriends)<br>
+  Documento (https://docs.google.com/document/d/1FVwfioV6UeQcFcx8wt5n7lotFg6QZagaujIHaXSQiF8/edit?usp=sharing)<br>
+
+</details>
+
+
