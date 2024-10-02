@@ -194,7 +194,7 @@ O codigo esta na ramificação [css_loja_de_moda](https://github.com/Bagelboi/In
   <img src="https://i.imgur.com/stOecr9.png" width="56%"><br>
 </details>
 
-# Bloco de Java
+# Bloco de Java e C#
 <details>
   <summary>Sistema de Gestão Academica</summary><br>
   O projeto de bloco consistia em aprender á criar os varios diagramas da UML, como de caso de uso, de classe e de sequencia para depois implementar somente uma pequena parte em código com o Entity Framework do .NET. O projeto era um sistema de gestão academica replicando o modelo da INFNET.<br>
@@ -259,10 +259,10 @@ O codigo esta na ramificação [css_loja_de_moda](https://github.com/Bagelboi/In
   
 </details>
 
-# Bloco de Software Escalaveis (DDD, Springboot, Docker, Kubernetes, CI/CD, RabbitMQ, Axon, Logging)
+# Bloco de Software Escalaveis (DDD, Springboot e Devops)
 <details>
   <summary>Blog de Projetos de Alunos</summary><br>
-  Esse projeto foi idealizado como um CRUD de projetos e os micro-serviços dentro desses. Foi criado um front-end com React e o back-end com varios microserviços feitos com Springboot + RabbitMQ + Papertrail e finalmente plantados no Docker. <br>
+  Esse projeto foi idealizado como um CRUD de projetos e os micro-serviços dentro desses. Foi criado um front-end com React + Swagger e o back-end com varios microserviços feitos com Springboot + RabbitMQ + Papertrail e finalmente plantados no Docker. <br>
   
 ## Repositórios de Github
 - https://github.com/Bagelboi/ProjetoDeBlocoEscalaveis - Configurações do docker-compose e módulos do projeto<br>
@@ -278,6 +278,18 @@ https://docs.google.com/document/d/1HexdV6lmsqyBF55LbcLb755F42io3OKc9daZSnBZLTk/
 
 ## Apresentação
 https://www.youtube.com/watch?v=y-3Xjj4SoZQ
+
+## Fotos
+### Pagina Inicial
+  <img src="https://i.imgur.com/5Wj7mWE.png"  width="56%"><br>
+### Pagina de Login
+  <img src="https://i.imgur.com/Sxfblt6.png"  width="56%"><br>
+### Pagina de Criação de Projeto
+  <img src="https://i.imgur.com/5Wj7mWE.png"  width="56%"><br>
+### Pagina de Projetos
+  <img src="https://i.imgur.com/jT9kGZT.png"  width="56%"><br>
+### Pagina do Projeto
+  <img src="https://i.imgur.com/GLaRqr4.png"  width="56%"><br>
 
 </details>
 
@@ -299,4 +311,22 @@ https://www.youtube.com/watch?v=y-3Xjj4SoZQ
 
 </details>
 
+<details>
+  <summary>Outros</summary>
+  Outros projetos trabalharam competencias especificas.<br>
 
+  ## Autenticação com Spring Security
+  https://github.com/Bagelboi/Infnet-Projetos/tree/servicesspring_at
+  ## Axon e Event Sourcing
+  https://github.com/Bagelboi/Infnet-Projetos/tree/ddd2_tp3
+  ## Webflux + Banco de Dados Reativo + Kubernetes + Test Containers + CI/CD com Github Actions
+  ### Documento
+  https://docs.google.com/document/d/1iJBHKnfid1LK4ko1NDqt3h-opSal2N80FUriu0mo_4Q/edit?usp=sharing)<br>
+  ### Repositórios
+  - https://github.com/Bagelboi/ls-funcionario-service<br> (Esse possui workflows do Actions)
+  - https://github.com/Bagelboi/ls-missao-service<br>
+  - https://github.com/Bagelboi/ls-eureka-server<br>
+  - https://github.com/Bagelboi/ls-gateway-server<br>
+
+
+</details>
