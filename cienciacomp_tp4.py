@@ -166,26 +166,35 @@ for i in range(1, 7):
         "cacto", "cadáver", "cafofo", "caipira", "calça", "caldo", "calma", "cama"
     ][:i_n]
 
+    words_n = ["casa", "calma", "casulo", "caipira", "caipiras", "casamento", "casamentos"]
+    
     trie = Trie()
     start_time_total = getTime()
     for word in words:
         trie.insert(word)
     print(getTime() - start_time_total, "Segundos - Inserindo (total)") 
     
-    search_word = ""
-    for word in sorted(words, key=lambda w: len(w)):
-        if len(word) == 3 + i:
-            search_word = word
-            break
+    search_word = words_n[i-1]
     start_time = getTime()
     found = trie.search(search_word)
     print("\n", getTime() - start_time, "Segundos - Buscando", search_word, "Achada?:", found)
-    
 
+    start_time = getTime()
+    trie.insert(search_word)
+    print("\n", getTime() - start_time, "Segundos - Inserindo", search_word, "com", len(search_word), "letras\n")
+    
     start_time = getTime()
     auto_word = "c"
     print(trie.autoComplete(auto_word))
-    print("\n", getTime() - start_time, "Segundos - Autocomplete para", auto_word)
+    print("", getTime() - start_time, "Segundos - Autocomplete para", auto_word, "\n")
+    start_time = getTime()
+    auto_word = "ca"
+    print(trie.autoComplete(auto_word))
+    print("", getTime() - start_time, "Segundos - Autocomplete para", auto_word, "\n")
+    start_time = getTime()
+    auto_word = "cas"
+    print(trie.autoComplete(auto_word))
+    print("", getTime() - start_time, "Segundos - Autocomplete para", auto_word, "\n")
 
     start_time = getTime()    
     for word in sorted(words, key=lambda w: len(w)):

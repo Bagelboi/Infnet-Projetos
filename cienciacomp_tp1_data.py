@@ -2,7 +2,7 @@ import time
 import psutil
 import sys
 
-OUT_PATH = "./output.txt"
+OUT_PATH = "./output_cienciacomp_tp1.txt"
 TIMES = 40
 
 

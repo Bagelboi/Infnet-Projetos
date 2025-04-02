@@ -507,6 +507,8 @@ print("Grupo 4")
 #Ex 4.1
 print("\n192.168.1.1", "em", 24, "?")
 print(isInPrefix("192.168.1.1", 24))
+print("\n192.168.1.1/24", "em", 24, "?")
+print(isInPrefix("192.168.1.1/24", 24))
 
 #Ex 4.2
 print("\nIPV4 Trie")
@@ -524,17 +526,25 @@ print(trie.search("172.16.0.1"))
 #Ex 4.3
 print("\nIPV6 Trie")
 trie = IPTrie(ipv6=True)
-trie.insert("2001:db8::/32")
 trie.insert("2001:0db8:85a3::/48")
+trie.insert("2001:0db8:85a3:0000:0000:8a2e:0370:7334/64")
+trie.insert("2606:4700:4700::1111/128")
+trie.insert("::1/128")
+trie.insert("fc00::/7")
+trie.insert("fe80::/10")
 
 print("Buscando 2001:db8::1")
-print(trie.search("2001:db8::1")) 
-print("Buscando 2001:0db8:85a3::1")
-print(trie.search("2001:0db8:85a3::1")) 
+print(trie.search("2001:db8::1"))
 print("Buscando 2001:0db8:85a3:0000:0000:8a2e:0370:7334")
 print(trie.search("2001:0db8:85a3:0000:0000:8a2e:0370:7334"))
-print("Buscando 2001:0db8:85a3::2")
-print(trie.search("2001:0db8:85a3::2"))  
+print("Buscando 2606:4700:4700::1111")
+print(trie.search("2606:4700:4700::1111"))
+print("Buscando ::1")
+print(trie.search("::1"))
+print("Buscando fd12:3456:789a::1")
+print(trie.search("fd12:3456:789a::1"))
+print("Buscando fe80::1234")
+print(trie.search("fe80::1234"))
 
 #Ex 4.4
 def gerarPrefixos(n):
