@@ -14,7 +14,8 @@ Esse foi meu primeiro bloco e consideravelmente o mais dificil comparado ao rest
   <summary>Projeto do Bloco : Unhooked</summary>
 
   ## Link do APK
-  https://play.google.com/store/apps/details?id=com.danielgomeslipkin.unhooked.app&pli=1
+  <s>https://play.google.com/store/apps/details?id=com.danielgomeslipkin.unhooked.app&pli=1</s>
+  Apagaram a conta da Infnet do Dev Console que incluia todos alunos pois o Android Studio não é mais lecionado, substituido pelo React Native.
   
   ## O projeto
   O projeto do bloco consistiu em criar um aplicativo hosteado na Play Store com anuncios, com integração ao Firebase e organizado com a metodologia SCRUM. Esse trabalho, dado a complexidade, devia ser feito em grupo porem devido ao tamanho pequeno da turma e o fato de que minha dupla abandonou a Infnet no meio do processo, tornando ele muito mais arduoso que o esperado. A proposta do aplicativo é basicamente um rastreador de vicios pessoais, como cigarros, com o intuito de auxiliar o usuario para controlar ele.
