@@ -1,5 +1,12 @@
 # Projetos da Infnet
 Aqui estão projetos destacados que foram feitos no Instituto Infnet por mim ou em grupo durante os trimestres/blocos ja decorridos.
+1. [Projetos da Infnet](#projetos-da-infnet)  
+2. [Bloco de Android](#bloco-de-android)  
+3. [Bloco de Web Full Stack](#bloco-de-web-full-stack)  
+4. [Bloco de Interação Humano Computador](#bloco-de-interação-humano-computador)  
+5. [Bloco de Java e C#](#bloco-de-java-e-c)  
+6. [Bloco de Python e SQL](#bloco-de-python-e-sql)  
+7. [Bloco de Software Escalaveis (DDD, Springboot e Devops)](#bloco-de-software-escalaveis-ddd-springboot-e-devops)  
 
 # Bloco de Android
 Esse foi meu primeiro bloco e consideravelmente o mais dificil comparado ao resto que cursei depois e que presentemente curso.
