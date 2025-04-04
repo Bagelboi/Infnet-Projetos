@@ -254,6 +254,7 @@ def ex23():
                 arr = list(range(pow(10,n)))
                 random.shuffle(arr)
                 start_time = getTime()
+                quickselect(arr, 0, len(arr)-1, k)
                 time_avg.append(getTime() - start_time)
             print(f"{k}-esimo menor elemento - {sum(time_avg)/len(time_avg)} segundos - {pow(10,n)} elementos")
 
@@ -261,7 +262,9 @@ def ex23():
 def ex24(size):
             arr = list(range(size))
             random.shuffle(arr)
+            start_time = getTime()
             print("Mediana - ", quickselect(arr, 0, len(arr)-1, len(arr)//2))
+            print(getTime() - start_time, "Segundos")
 
 #Exercicio 3.1
 class ListNode:

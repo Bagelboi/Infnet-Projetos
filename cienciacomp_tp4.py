@@ -394,3 +394,15 @@ def udpClient(host, port):
             data, addr = s.recvfrom(512)  
             print(data.decode())
 
+
+
+#Grupo 5
+import http.client
+
+def conectar(host, port):
+	client = http.client.HTTPConnection(host, port)
+	client.request("GET", "./index.html")
+	res = client.getresponse()
+	print(res.status)
+
+
