@@ -1,0 +1,68 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <img href="https://cdn.icon-icons.com/icons2/2415/PNG/512/csharp_original_logo_icon_146578.png" />
+    <h1 class="display-4">Desenvolvimento Web com .NET e Bases de Dados</h1>
+</div>
+    <div>
+        <form method="get" action="@Url.Action("Index", "Funcionarios")">
+            <div class="form-group">
+                <label for="searchName">Procurar Funcionario</label>
+                <input type="text" id="searchName" name="searchName" class="form-control" placeholder="Nome do Funcionario">
+            </div>
+            <button type="submit" class="btn btn-primary">Pesquisar</button>
+        </form>
+        <i>Por Daniel Gomes Lipkin</i>
+        <i>Lecionado por Ricardo Frolich</i>
+        <h2>Sobre</h2>
+        Essa disciplina visa tornar competente o aluno em C# e nas frameworks .NET pertinente á aplicativos web e banco de dados.
+        <h2>Projeto</h2>
+        Esse projeto é um CRUD simples com Funcionarios, Departamentos e mais Endereços, alem da autenticação.
+        <h2>Pros</h2>
+        <ul>
+            <li>
+                Abrange bem todos conceitos da linguagem e em detalhe
+            </li>
+            <li>
+                Aborda bem a criação de Entities, Views e banco de dados
+            </li>
+            <li>
+                Compreende-se a arquitetura MVC
+            </li>
+            <li>
+                Feito bem aos poucos
+            </li>
+            <li>
+                Não se aborda CSS nem JavaScript porque realmente não ha necessidade
+            </li>
+        </ul>
+        <h2>Contras</h2>
+        <ul>
+            <li>
+                Feito talvez demais aos poucos
+            </li>
+            <li>
+                Não se vai alem de um CRUD basico com uma autenticação somente de teste para o projeto final
+            </li>
+            <li>
+                Projeto final não permite a criatividade na elaboração de um sistema
+            </li>
+            <li>
+                Maioria do bloco de Web foi, com todo respeito, muita receita de bolo
+            </li>
+            <li>
+                Não se aborda muito ou pelo menos não foi praticado o suficiente as Controllers e as requests HTTP
+            </li>
+        </ul>
+        <h2>Sugestões</h2>
+        <p>Eu sugiro que haja uma revisão na matéria assinalada pela coordenação para abranger mais frameworks como o Blazor</p>
+        <p>Ou esgotar o mais possivel do que foi apresentado, como exemplo diferentes tipos de autenticação e exigindo um trabalho final mais elaborado</p>
+        <p>Agora me dirijo para o professor. Por favor não copie e cole código e espere os alunos. Isso pode ser bom pra eles verem funcionando mas não vai testar se eles realmente entenderam oque cada parte faz e como resolver se houver um erro.</p>
+    </div>
+
+<div class="text-center">
+Enfim
+<h2>Valeu pelas aulas professor!</h2>
+</div>
