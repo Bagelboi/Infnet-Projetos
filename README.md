@@ -319,10 +319,6 @@ https://www.youtube.com/watch?v=y-3Xjj4SoZQ
 
 </details>
 
-<details>
-  <summary>Outros</summary>
-  Outros projetos trabalharam competencias especificas.<br>
-
   ## Autenticação com Spring Security
   https://github.com/Bagelboi/Infnet-Projetos/tree/servicesspring_at
   ## Axon e Event Sourcing
