@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>LoginPageObject.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">testes_at</a> &gt; <a href="index.source.html" class="el_package">org.dlpk.Exercicio4</a> &gt; <span class="el_source">LoginPageObject.java</span></div><h1>LoginPageObject.java</h1><pre class="source lang-java linenums">package org.dlpk.Exercicio4;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import java.io.IOException;
+import java.util.Objects;
+import java.util.Optional;
+
+public class LoginPageObject extends BasePageObject {
+    // /login
+
+<span class="fc" id="L14">    private final By signup_form = By.cssSelector(&quot;.signup-form form&quot;);</span>
+<span class="fc" id="L15">    private final By login_form = By.cssSelector(&quot;.login-form form&quot;);</span>
+<span class="fc" id="L16">    private final By email_input = By.name(&quot;email&quot;);</span>
+<span class="fc" id="L17">    private final By name_input = By.name(&quot;name&quot;);</span>
+<span class="fc" id="L18">    private final By password_input = By.name(&quot;password&quot;);</span>
+<span class="fc" id="L19">    private final By confirm_button = By.tagName(&quot;button&quot;);</span>
+<span class="fc" id="L20">    private final By error_msg = By.cssSelector(&quot;p[style='color: red;']&quot;);</span>
+
+    public LoginPageObject(WebDriver driver) throws IOException {
+<span class="fc" id="L23">        super(driver);</span>
+<span class="pc bpc" id="L24" title="1 of 2 branches missed.">        if (!driver.getCurrentUrl().contains(&quot;login&quot;))</span>
+<span class="nc" id="L25">            throwErrorAndScreenshot(&quot;Pagina não é login&quot;, &quot;erro_nao_login&quot;);</span>
+<span class="fc" id="L26">    }</span>
+
+    public String getErrorMessage() {
+        //email ou senha incorreto
+        //email ja registrado
+<span class="pc bpc" id="L31" title="1 of 2 branches missed.">        if (isPresent(error_msg))</span>
+<span class="fc" id="L32">            return q(error_msg).getText();</span>
+<span class="nc" id="L33">        return &quot;&quot;;</span>
+    }
+
+    public HomePageObject fillLoginForm(String email, String senha) throws IOException, InterruptedException {
+<span class="fc" id="L37">        WebElement form = q(login_form);</span>
+<span class="fc" id="L38">        form.findElement(email_input).sendKeys(email);</span>
+<span class="fc" id="L39">        form.findElement(password_input).sendKeys(senha);</span>
+<span class="fc" id="L40">        form.findElement(confirm_button).click();</span>
+<span class="fc" id="L41">        wait(2000);</span>
+<span class="fc" id="L42">        return new HomePageObject(driver);</span>
+    }
+
+    public RegisterPageObject fillSignupForm(String nome, String email) throws IOException, InterruptedException {
+<span class="fc" id="L46">        WebElement form = q(signup_form);</span>
+<span class="fc" id="L47">        form.findElement(name_input).sendKeys(nome);</span>
+<span class="fc" id="L48">        form.findElement(email_input).sendKeys(email);</span>
+<span class="fc" id="L49">        form.findElement(confirm_button).click();</span>
+<span class="fc" id="L50">        wait(2000);</span>
+<span class="fc" id="L51">        return new RegisterPageObject(driver);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>
