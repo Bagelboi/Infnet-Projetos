@@ -36,6 +36,12 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 	testImplementation "net.jqwik:jqwik:${jqwikVersion}"
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	testImplementation 'org.seleniumhq.selenium:selenium-java'
+	testImplementation("io.github.bonigarcia:webdrivermanager:6.3.3")
+// https://mvnrepository.com/artifact/org.springdoc/springdoc-openapi-starter-webmvc-ui
+	implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.5.0")
+
 }
 
 tasks.named('test') {

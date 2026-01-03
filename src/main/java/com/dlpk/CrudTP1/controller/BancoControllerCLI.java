@@ -111,7 +111,7 @@ public class BancoControllerCLI {
             System.out.println("A transferencia não foi sucedida...");
     }
 
-    @PostConstruct
+    //@PostConstruct
     public void init() {
         initTeste();
         MenuOption state = MenuOption.DEFAULT;

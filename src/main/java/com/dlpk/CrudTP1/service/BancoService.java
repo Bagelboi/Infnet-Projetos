@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class BancoService {
     final double TAXA_TRANSFERENCIA = 1.15; //15%
-
+    final double SALDO_INICIAL = 100.0;
     @Autowired
     ContaService contaService;
 
@@ -17,6 +17,10 @@ public class BancoService {
             return true;
         }
         return false;
+    }
+
+    public void adicionarSaldoInicial(Long id) {
+        contaService.adicionarSaldo(id, SALDO_INICIAL);
     }
 
     public boolean saldoSuficiente(Long id, Double quantidade) {
