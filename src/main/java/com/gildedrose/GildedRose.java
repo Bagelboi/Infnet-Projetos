@@ -16,7 +16,7 @@ class GildedRose {
                         items[i].quality = items[i].quality - 1;
                     }
                 }
-            } else {
+            } else { //only the special ones
                 if (items[i].quality < 50) {
                     items[i].quality = items[i].quality + 1;
 
@@ -35,7 +35,7 @@ class GildedRose {
                     }
                 }
             }
-
+            //all items
             if (!items[i].name.equals("Sulfuras, Hand of Ragnaros")) {
                 items[i].sellIn = items[i].sellIn - 1;
             }
