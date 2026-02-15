@@ -2,7 +2,7 @@ name: Java CI Pipeline
 
 on:
   push:
-    branches: [ main ]
+    branches: [ calculadora_web ]
     paths:
       - "src/**"
 
@@ -12,18 +12,13 @@ on:
 
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
-
-  checkout:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout do código
-        uses: actions/checkout@v4
-
 
   build:
     runs-on: ubuntu-latest
-    needs: checkout
 
     steps:
       - uses: actions/checkout@v4
@@ -72,10 +67,28 @@ jobs:
         run: mvn package
 
 
-  deploy:
+  update-readme:
     runs-on: ubuntu-latest
     needs: [build, test, package]
+    if: always()
 
     steps:
-      - name: Deploy simulado
-        run: echo "Deploy realizado com sucesso"
+      - name: Simular atualização do README
+        run: |
+          if [[ "${{ needs.build.result }}" == "success" && \
+                "${{ needs.test.result }}" == "success" && \
+                "${{ needs.package.result }}" == "success" ]]; then
+            echo "README seria atualizado para: Pipeline executou com sucesso."
+          else
+            echo "README seria atualizado para: Pipeline falhou."
+          fi
+
+
+  comentar-aplicacao:
+    runs-on: ubuntu-latest
+    needs: [build, test, package]
+    if: needs.build.result == 'success' && needs.test.result == 'success' && needs.package.result == 'success'
+
+    steps:
+      - name: Simular comentário na aplicação
+        run: echo "// Pipeline executada com sucesso seria adicionada na CalculadoraWebApplication"
