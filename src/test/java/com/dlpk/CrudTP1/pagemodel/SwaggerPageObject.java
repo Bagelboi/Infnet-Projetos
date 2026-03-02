@@ -14,7 +14,7 @@ public class SwaggerPageObject extends BasePageObject {
     private final By opblock_execute = By.cssSelector(".execute");
     private final By opblock_tryout_execute = By.cssSelector(".try-out__btn");
     private final By opblock_params = By.cssSelector(".parameters-col_description input");
-    private final By response_selector = By.cssSelector(".response .response-col_status");
+    private final By response_selector = By.cssSelector(".live-responses-table tbody .response-col_status");
     private final By opblock_request_body = By.cssSelector(".body-param textarea");
 
     public SwaggerPageObject(WebDriver driver) {
@@ -29,6 +29,14 @@ public class SwaggerPageObject extends BasePageObject {
             return stuff[0].equals(type) && stuff[1].equals(path);
         }).findFirst().get();
         opblock.click();
+        return opblock.findElement(By.xpath("../.."));
+    }
+
+    public WebElement getOpBlockNoOpen(String path, String type) {
+        WebElement opblock = Q(opblock_selector).stream().filter(el -> {
+            String[] stuff =  el.getText().split("\\n");
+            return stuff[0].equals(type) && stuff[1].equals(path);
+        }).findFirst().get();
         return opblock.findElement(By.xpath("../.."));
     }
 
@@ -61,8 +69,16 @@ public class SwaggerPageObject extends BasePageObject {
     }
 
     public boolean responseOk(WebElement opblock) {
-       int res_code = Integer.parseInt( opblock.findElement(response_selector).getText() );
-       return res_code >= 200 && res_code <= 300;
+        String text = opblock.findElement(response_selector).getText();
+        int res_code = Integer.parseInt(text.replaceAll("[^0-9]", ""));
+        return res_code >= 200 && res_code <= 300;
+    }
+
+    public boolean responseBad(WebElement opblock) {
+        String text = opblock.findElement(response_selector).getText();
+        int res_code = Integer.parseInt(text.replaceAll("[^0-9]", ""));
+        System.out.println(res_code);
+        return res_code >= 400;
     }
 
 }
