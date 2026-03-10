@@ -1,3 +1,5 @@
+[![Java CI Pipeline](https://github.com/Bagelboi/Infnet-Projetos/actions/workflows/ci_tp2.yml/badge.svg?branch=calculadora_web_tp2)](https://github.com/Bagelboi/Infnet-Projetos/actions/workflows/ci_tp2.yml)
+
 # Calculadora REST API
 API basica de calculadora para testar funções de CI/CD. Actions possui 2 ações, uma de teste e outra que executa os testes e empacota o jar.
 
