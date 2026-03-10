@@ -33,7 +33,7 @@ jobs:
         run: mvn -B clean compile
 
   test:
-    needs: build
+    needs: build 
     uses: ./.github/workflows/lint_and_test.yml
 
   package:
