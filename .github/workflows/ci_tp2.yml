@@ -10,17 +10,17 @@ on:
     paths:
       - "src/**"
 
-workflow_dispatch:
-  inputs:
-    run_tests:
-      description: "Executar testes"
-      required: true
-      type: boolean
+  workflow_dispatch:
+    inputs:
+      run_test:
+        description: "Executar testes"
+        required: true
+        type: boolean
 
-    run_lint:
-      description: "Executar lint"
-      required: true
-      type: boolean
+      run_lint:
+        description: "Executar lint"
+        required: true
+        type: boolean
 
 permissions:
   contents: write
@@ -46,7 +46,7 @@ jobs:
     needs: build 
     uses: ./.github/workflows/lint_and_test.yml
     with:
-      run_tests: ${{ inputs.run_tests }}
+      run_test: ${{ inputs.run_test }}
       run_lint: ${{ inputs.run_lint }}
 
   package:
