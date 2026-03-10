@@ -3,11 +3,18 @@ name: Linting e Teste
 
 on:
   workflow_call:
+    inputs:
+      run_test:
+        required: true
+        type: boolean
+      run_lint:
+        required: true
+        type: boolean
 
 jobs:
   checkstyle:
     runs-on: ubuntu-latest
-
+    if: ${{ inputs.run_lint }}
     steps:
       - uses: actions/checkout@v6
       - uses: dbelyaev/action-checkstyle@v3
@@ -16,7 +23,7 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
-
+    if: ${{ inputs.run_test }}
     steps:
       - uses: actions/checkout@v4
 
