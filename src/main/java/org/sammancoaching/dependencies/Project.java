@@ -1,60 +1,49 @@
 package org.sammancoaching.dependencies;
 
+import org.sammancoaching.stage.DeployStage;
+import org.sammancoaching.stage.STAGE_RESULT;
+import org.sammancoaching.stage.TestStage;
+
 import static org.sammancoaching.dependencies.TestStatus.NO_TESTS;
 import static org.sammancoaching.dependencies.TestStatus.PASSING_TESTS;
 
 public class Project {
-    private final boolean deploysSuccessfully;
-    private final TestStatus testStatus;
-    private final boolean deploysSuccessfullyToStaging;
-    private final TestStatus smokeTestStatus;
+    private final TestStage testStage;
+    private final DeployStage deployStage;
 
-    public static ProjectBuilder builder() {
-        return new ProjectBuilder();
-    }
-
-    private Project(boolean deploysSuccessfully, TestStatus unitTestStatus, boolean deploysSuccessfullyToStaging, TestStatus smokeTestStatus) {
-        this.deploysSuccessfully = deploysSuccessfully;
-        this.testStatus = unitTestStatus;
-        this.deploysSuccessfullyToStaging = deploysSuccessfullyToStaging;
-        this.smokeTestStatus = smokeTestStatus;
+    private Project(TestStage testStage, DeployStage deployStage) {
+        this.testStage = testStage;
+        this.deployStage = deployStage;
     }
 
     public boolean hasTests() {
-        return testStatus != NO_TESTS;
+        return testStage.hasTests();
     }
 
-    public String runTests() {
-        return testStatus == PASSING_TESTS ? "success" : "failure";
+    public STAGE_RESULT runTests() {
+        testStage.run();
+        return testStage.getResult();
     }
 
-    public String deploy() {
-        return deploy(DeploymentEnvironment.PRODUCTION);
-    }
-    public String deploy(DeploymentEnvironment environment) {
-        switch (environment) {
-            case STAGING:
-                return deploysSuccessfullyToStaging ? "success" : "failure";
-            case PRODUCTION:
-                return deploysSuccessfully ? "success" : "failure";
-            default:
-                return "failure";
-        }
-    }
-
-    public TestStatus runSmokeTests() {
-        return smokeTestStatus;
+    public STAGE_RESULT deploy() {
+        deployStage.run();
+        return deployStage.getResult();
     }
 
     public static class ProjectBuilder {
-        private boolean deploysSuccessfully;
-        private TestStatus testStatus;
+        private DeploymentEnvironment environment;
+        private boolean deploysSuccessfully = false;
+        private TestStatus testStatus = NO_TESTS;
         private boolean deploysSuccessfullyToStaging = false;
         private TestStatus smokeTestStatus = NO_TESTS;
 
         public ProjectBuilder setTestStatus(TestStatus testStatus) {
             this.testStatus = testStatus;
             return this;
+        }
+
+        public ProjectBuilder(DeploymentEnvironment environment) {
+            this.environment = environment;
         }
 
         public ProjectBuilder setSmokeTestStatus(TestStatus smokeTestStatus) {
@@ -73,7 +62,10 @@ public class Project {
         }
 
         public Project build() {
-            return new Project(deploysSuccessfully, testStatus, deploysSuccessfullyToStaging, smokeTestStatus);
+            TestStage test_stage = new TestStage.Builder().setSmokeTestStatus(smokeTestStatus).setTestStatus(testStatus).build();
+            return new Project( test_stage,
+                    new DeployStage.Builder(test_stage).setDeploysToStaging(deploysSuccessfullyToStaging)
+                            .setDeploysToProd(deploysSuccessfully).setEnviroment(environment).build());
         }
     }
 }

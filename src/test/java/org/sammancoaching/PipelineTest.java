@@ -1,6 +1,7 @@
 package org.sammancoaching;
 
 import org.junit.jupiter.api.Test;
+import org.sammancoaching.dependencies.DeploymentEnvironment;
 import org.sammancoaching.dependencies.Project;
 import org.sammancoaching.dependencies.TestStatus;
 
@@ -16,20 +17,22 @@ public class PipelineTest {
 
     @Test
     void run() {
-        pipeline.run(new Project.ProjectBuilder().build());
+        pipeline.run(new Project.ProjectBuilder(DeploymentEnvironment.PRODUCTION).build());
     }
 
     @Test
     void testsTest() {
-        Project project = Project.builder().setTestStatus(TestStatus.PASSING_TESTS).build();
-        pipeline.run(project);
-
-        assertTrue(pipeline.isTestsPassed());
-         project = Project.builder().setTestStatus(TestStatus.NO_TESTS).build();
+        Project project = new Project.ProjectBuilder(DeploymentEnvironment.PRODUCTION).setTestStatus(TestStatus.PASSING_TESTS)
+                .setDeploysSuccessfully(true).build();
         pipeline.run(project);
         assertTrue(pipeline.isTestsPassed());
 
-         project = Project.builder().setTestStatus(TestStatus.FAILING_TESTS).build();
+         project = new Project.ProjectBuilder(DeploymentEnvironment.PRODUCTION).setTestStatus(TestStatus.PASSING_TESTS)
+                .setDeploysSuccessfully(true).build();
+        pipeline.run(project);
+        assertTrue(pipeline.isTestsPassed());
+
+         project = new Project.ProjectBuilder(DeploymentEnvironment.PRODUCTION).setTestStatus(TestStatus.FAILING_TESTS).build();
         pipeline.run(project);
         assertFalse(pipeline.isTestsPassed());
     }
@@ -37,15 +40,18 @@ public class PipelineTest {
     @Test
     void deployTest() {
         //Deploy passa
-        Project project = Project.builder().setTestStatus(TestStatus.PASSING_TESTS).setDeploysSuccessfully(true).build();
+        Project project = new Project.ProjectBuilder(DeploymentEnvironment.PRODUCTION).setTestStatus(TestStatus.PASSING_TESTS)
+                .setDeploysSuccessfully(true).build();
         pipeline.run(project);
         assertTrue(pipeline.isDeploySuccessful());
         //Deploy falha
-         project = Project.builder().setTestStatus(TestStatus.PASSING_TESTS).setDeploysSuccessfully(false).build();
+         project = new Project.ProjectBuilder(DeploymentEnvironment.PRODUCTION).setTestStatus(TestStatus.PASSING_TESTS)
+                 .setDeploysSuccessfully(false).build();
         pipeline.run(project);
         assertFalse(pipeline.isDeploySuccessful());
         //Testes falharam mas deploy é pra suceder
-        project = Project.builder().setTestStatus(TestStatus.FAILING_TESTS).setDeploysSuccessfully(true).build();
+        project = new Project.ProjectBuilder(DeploymentEnvironment.PRODUCTION).
+                setTestStatus(TestStatus.FAILING_TESTS).setDeploysSuccessfully(true).build();
         pipeline.run(project);
         assertFalse(pipeline.isDeploySuccessful());
     }

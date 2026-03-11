@@ -1,10 +1,8 @@
 package org.sammancoaching;
 
 import lombok.Getter;
-import org.sammancoaching.dependencies.Config;
-import org.sammancoaching.dependencies.Emailer;
-import org.sammancoaching.dependencies.Logger;
-import org.sammancoaching.dependencies.Project;
+import org.sammancoaching.dependencies.*;
+import org.sammancoaching.stage.STAGE_RESULT;
 
 public class PipelineV2 {
     private final Config config;
@@ -23,8 +21,9 @@ public class PipelineV2 {
         this.log = log;
     }
 
+
     private void runTests() {
-        testsPassed = !project.hasTests() || project.runTests() == "success";
+        testsPassed = !project.hasTests() || project.runTests() == STAGE_RESULT.SUCCESS;
 
         if (project.hasTests()) {
             if (testsPassed) {
@@ -38,7 +37,7 @@ public class PipelineV2 {
     }
 
     private void deploy() {
-        deploySuccessful = testsPassed && project.deploy() == "success";
+        deploySuccessful = testsPassed && project.deploy() == STAGE_RESULT.SUCCESS;
 
         if (deploySuccessful) {
             log.info("Deployment successful");
