@@ -1,4 +1,4 @@
 BuildPipeline Refactoring Kata in Java
 ======================================
 
-For exercise instructions see [top level README](../README.md)
+Trabalho para o TP2 de refatoração em Java.
