@@ -1,7 +1,7 @@
 package org.dlpk.tp3.model;
 
 import lombok.*;
-import org.dlpk.tp3.EmailService;
+import org.dlpk.tp3.service.EmailService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,16 +13,15 @@ public class Order {
     @Data
     static
     class ProductOrder {
-        String product;
+        Item product;
         Integer quantity;
-        Double price;
 
         public String getInvoiceEntry() {
-            return this.getQuantity() + "x " + this.getProduct() + " - R$" + this.getPrice();
+            return this.getQuantity() + "x " + this.getProduct().getNome() + " - " + this.getProduct().getPreco();
         }
 
         public Double getTotalPrice() {
-            return this.getPrice() * this.getQuantity();
+            return this.getProduct().getPreco().getValor() * this.getQuantity();
         }
     }
 
