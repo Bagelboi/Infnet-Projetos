@@ -17,17 +17,22 @@ public class InvoiceService {
         return productOrder.getQuantity() + "x " + productOrder.getProduct().getNome() + " - " + productOrder.getProduct().getPreco();
     }
 
+    private void printInvoiceField(String prefix, String value) {
+        System.out.printf("%s: %s%n", prefix, value);
+    }
+
     public void printInvoice(Order order) {
         double total = 0;
         System.out.println("Cliente: " + order.getClient().getClientName());
         for (Order.ProductOrder product : order.getProducts()) {
-            System.out.println(getInvoiceEntryFromOrder(product));
+            printInvoiceField(":", getInvoiceEntryFromOrder(product));
             total += product.getTotalPrice();
         }
         Preco preco_total = new Preco(total);
         Preco desconto =  discountPolicy.calculateDiscount( preco_total, order.getDiscountRate() );
         System.out.println("Subtotal: " + preco_total.toString());
-        System.out.println("Desconto: " + desconto.toString());
-        System.out.println("Total final: " + new Preco( preco_total.getValor() - desconto.getValor() ).toString());
+        printInvoiceField("Subtotal", preco_total.toString());
+        printInvoiceField("Desconto", desconto.toString());
+        printInvoiceField( "Total final", preco_total.sub(desconto).toString() );
     }
 }

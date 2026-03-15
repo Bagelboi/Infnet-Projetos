@@ -18,6 +18,14 @@ public class Preco {
         this.valor = decimal.doubleValue();
     }
 
+    public Preco add(Preco preco) {
+        return new Preco( this.valor + preco.getValor() );
+    }
+
+    public Preco sub(Preco preco) {
+        return new Preco( this.valor - preco.getValor() );
+    }
+
     @Override
     public String toString() {
         return "R$ " + String.format("%.2f", this.valor);

@@ -8,10 +8,7 @@ import org.dlpk.tp3.value.Preco;
 import java.util.ArrayList;
 import java.util.List;
 
-@AllArgsConstructor
-@NoArgsConstructor
 public class Order {
-
     @AllArgsConstructor
     @NoArgsConstructor
     @Data
@@ -23,6 +20,10 @@ public class Order {
         public Double getTotalPrice() {
             return this.getProduct().getPreco().getValor() * this.getQuantity();
         }
+    }
+
+    public Order(Client client) {
+        this.client = client;
     }
 
     @Getter
