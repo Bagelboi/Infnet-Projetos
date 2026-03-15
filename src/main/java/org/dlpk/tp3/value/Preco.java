@@ -1,12 +1,12 @@
 package org.dlpk.tp3.value;
 
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
+@AllArgsConstructor
+@NoArgsConstructor
 public class Preco {
     @Getter
     double valor;
