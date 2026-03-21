@@ -13,7 +13,7 @@ public class Calculadora {
         return a * b; //h
     }
 
-    public int dividir(int a, int b) { //hi
+    public int dividir(int a, int b) { //hi dude
         if (b == 0)
             throw new RuntimeException("Divisão por zero!");
         return a / b;

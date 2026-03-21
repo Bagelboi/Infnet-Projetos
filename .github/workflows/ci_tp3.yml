@@ -35,6 +35,24 @@ jobs:
       - name: Java version
         run: java -version
 
+
+  variables:
+    name: Variaveis
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: App name
+        run: echo {vars.APP_NAME}
+      - name: Especie do macaco
+        run: echo {vars.MACACO}
+
+  secret:
+    name: Secrets
+    runs-on: ubuntu-latest
+    steps:
+      - name: Senha
+        run: echo {secrets.SENHA}
+
   build:
     runs-on: ubuntu-latest
 
