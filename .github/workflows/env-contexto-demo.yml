@@ -2,12 +2,14 @@ name: Env Pipeline
 
 on:
   push:
-    branches: [ calculadora_web_tp3 ]
+    branches: [ calculadora_web_tp3, calculadora_web_tp3_dev ]
 
 jobs:
 
   variables:
-    name: Variaveis
+    name: Variaveis (prod)
+    environment: prod
+    if: github.ref == 'refs/heads/calculadora_web_tp3'
     runs-on: ubuntu-latest
     steps:
       - name: Runner
@@ -16,10 +18,16 @@ jobs:
         run: echo ${{ runner.os }}
       - name : Variavel Env
         run: echo ${{vars.STAGE}}
+      - name : Macaco
+        run: echo ${{vars.MACACO}}
+      - name : App name
+        run: echo ${{vars.APP_NAME}}
+
 
   variables_dev:
     name: Variaveis (dev)
     environment: dev
+    if: github.ref == 'refs/heads/calculadora_web_tp3_dev'
     runs-on: ubuntu-latest
     steps:
       - name: Runner
@@ -28,3 +36,9 @@ jobs:
         run: echo ${{ runner.os }}
       - name : Variavel Env
         run: echo ${{vars.STAGE}}
+      - name : Macaco
+        run: echo ${{vars.MACACO}}
+      - name : App name
+        run: echo ${{vars.APP_NAME}}
+      - name : Senha
+        run: echo ${{secrets.SENHA}}
