@@ -42,16 +42,16 @@ jobs:
 
     steps:
       - name: App name
-        run: echo {vars.APP_NAME}
+        run: echo ${{vars.APP_NAME}}
       - name: Especie do macaco
-        run: echo {vars.MACACO}
+        run: echo ${{vars.MACACO}}
 
   secret:
     name: Secrets
     runs-on: ubuntu-latest
     steps:
       - name: Senha
-        run: echo {secrets.SENHA}
+        run: echo ${{secrets.SENHA}}
 
   build:
     runs-on: ubuntu-latest
