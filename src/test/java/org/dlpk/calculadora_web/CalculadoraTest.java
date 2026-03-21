@@ -35,4 +35,12 @@ public class CalculadoraTest {
         assertThrows( RuntimeException.class, () -> calc.dividir(2, 0) );
     }
 
+    @Test
+    public void sqrtTest() {
+        assertEquals( calc.sqrt(0) , 0);
+        assertEquals( calc.sqrt(4) , 2);
+        assertEquals( calc.sqrt(100) , 10);
+        assertThrows( RuntimeException.class, () -> calc.sqrt(-1) );
+    }
+
 }

@@ -29,4 +29,9 @@ public class CalculatorService {
         return calculator.dividir(a, b);
     }
 
+    @GetMapping("/sqrt")
+    public double squareroot(@RequestParam double a) {
+        return calculator.sqrt(a);
+    }
+
 }

@@ -18,4 +18,10 @@ public class Calculadora {
             throw new RuntimeException("Divisão por zero!");
         return a / b;
     }
+
+    public double sqrt(double a) { //hi dude
+        if (a < 0)
+            throw new RuntimeException("Raiz quadrada negativa complexa demais!");
+        return Math.sqrt( a );
+    }
 }
