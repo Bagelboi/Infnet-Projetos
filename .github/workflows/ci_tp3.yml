@@ -2,7 +2,7 @@ name: Java CI Pipeline
 
 on:
   push:
-    branches: [ calculadora_web_tp2 ]
+    branches: [ calculadora_web_tp3 ]
     paths:
       - "src/**"
 
@@ -26,6 +26,14 @@ permissions:
   contents: write
 
 jobs:
+
+  self-hosted:
+    name: Runner auto-hospedado
+    runs-on: [self-hosted, linux]
+
+    steps:
+      - name: Java version
+        run: java -version
 
   build:
     runs-on: ubuntu-latest
