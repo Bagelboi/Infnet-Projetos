@@ -24,17 +24,17 @@ on:
 
 permissions:
   contents: write
+  issues: write
 
 jobs:
 
-  self-hosted:
-    name: Runner auto-hospedado
-    runs-on: [self-hosted, linux]
-
+  issue-create:
+    runs-on: ubuntu-latest
     steps:
-      - name: Java version
-        run: java -version
-
+      - uses: actions/checkout@v3
+      - uses: JasonEtco/create-an-issue@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   variables:
     name: Variaveis
@@ -42,16 +42,16 @@ jobs:
 
     steps:
       - name: App name
-        run: echo ${{vars.APP_NAME}}
+        run: echo {vars.APP_NAME}
       - name: Especie do macaco
-        run: echo ${{vars.MACACO}}
+        run: echo {vars.MACACO}
 
   secret:
     name: Secrets
     runs-on: ubuntu-latest
     steps:
       - name: Senha
-        run: echo ${{secrets.SENHA}}
+        run: echo {secrets.SENHA}
 
   build:
     runs-on: ubuntu-latest
@@ -117,3 +117,11 @@ jobs:
     steps:
       - name: Simular comentário na aplicação
         run: echo "// Pipeline executada com sucesso seria adicionada na CalculadoraWebApplication"
+
+  self-hosted:
+    name: Runner auto-hospedado
+    runs-on: [self-hosted, linux]
+
+    steps:
+      - name: Java version
+        run: java -version
