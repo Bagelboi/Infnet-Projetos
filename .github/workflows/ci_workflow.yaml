@@ -1,0 +1,47 @@
+name: PB TP4 CRUD Workflow
+
+on:
+  push:
+    branches:
+      - crud_tp4
+  pull_request:
+    branches:
+      - crud_tp4
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    env:
+      SENHA_JAVA: ${{ secrets.SENHA_JAVA }}
+      SALDO_INICIAL: ${{ vars.SALDO_INICIAL }}
+      TAXA_TRANSFERENCIA: ${{ vars.TAXA_TRANSFERENCIA }}
+
+    steps:
+      - name: Mostrar variaveis
+        env:
+          VARS_JSON: ${{ toJSON(vars) }}
+        run: echo "${VARS_JSON}"
+
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      - name: Configurar Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Permissão no Gradle Wrapper
+        run: chmod +x ./gradlew
+
+      - name: Rodar testes
+        uses: gradle/gradle-build-action@v3
+        with:
+          arguments: test
+
+      - name: Build do projeto
+        uses: gradle/gradle-build-action@v3
+        with:
+          arguments: build
