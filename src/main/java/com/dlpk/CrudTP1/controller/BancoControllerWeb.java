@@ -5,6 +5,7 @@ import com.dlpk.CrudTP1.model.DTO.ContaDTO;
 import com.dlpk.CrudTP1.model.DTO.TransferenciaDTO;
 import com.dlpk.CrudTP1.service.BancoService;
 import com.dlpk.CrudTP1.service.ContaService;
+import com.dlpk.CrudTP1.service.PasswordAuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -16,7 +17,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/contas")
 public class BancoControllerWeb {
-    private final static String senha =  "macacoalbino123";
 
     @Autowired
     ContaService contaService;
@@ -24,8 +24,11 @@ public class BancoControllerWeb {
     @Autowired
     BancoService bancoService;
 
+    @Autowired
+    PasswordAuthService passService;
+
     private void autenticarSenha(String senha_dada) {
-        if (!senha.equals(senha_dada.trim()))
+        if (!passService.senhaCorreta(senha_dada))
             throw new ResponseStatusException(
                     HttpStatus.UNAUTHORIZED,
                     "Senha inválida"

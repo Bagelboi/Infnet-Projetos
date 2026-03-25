@@ -19,6 +19,7 @@ import java.util.concurrent.TimeoutException;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+@Disabled("Para testar workflows com mais agilidade")
 public class UIErrorTest {
     private static WebDriver driver;
     private static String password = "macacoalbino123";

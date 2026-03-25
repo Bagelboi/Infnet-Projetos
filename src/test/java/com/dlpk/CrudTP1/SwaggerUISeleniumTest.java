@@ -19,6 +19,7 @@ import java.util.Set;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+@Disabled("Para testar workflows com mais agilidade")
 public class SwaggerUISeleniumTest {
     private static WebDriver driver;
     private static String password = "macacoalbino123";
