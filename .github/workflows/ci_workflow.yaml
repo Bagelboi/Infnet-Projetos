@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  test-e-build:
     runs-on: ubuntu-latest
 
     env:
