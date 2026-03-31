@@ -8,13 +8,24 @@ on:
     branches:
       - crud_tp5
   workflow_dispatch:
+    inputs:
+      run_test:
+        description: "Run tests"
+        required: false
+        default: true
+        type: boolean
+      run_lint:
+        description: "Run lint"
+        required: false
+        default: true
+        type: boolean
 
 jobs:
   lint-and-test:
       uses: ./.github/workflows/lint_and_test.yaml
       with:
-        run_test: ${{ inputs.run_test || 'true' }}
-        run_lint: ${{ inputs.run_lint || 'true' }}
+        run_test: ${{ inputs.run_test }}
+        run_lint: ${{ inputs.run_lint }}
   build:
     runs-on: ubuntu-latest
 
