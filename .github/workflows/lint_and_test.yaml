@@ -48,4 +48,4 @@ jobs:
       - name: Teste do projeto
         uses: gradle/gradle-build-action@v3
         with:
-          arguments: test
+          arguments: test -S
