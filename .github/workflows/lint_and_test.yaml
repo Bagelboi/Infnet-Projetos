@@ -26,6 +26,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
   test:
+    environment: dev
     runs-on: ubuntu-latest
     if: ${{ inputs.run_test }}
     env:
@@ -49,9 +50,3 @@ jobs:
         uses: gradle/gradle-build-action@v3
         with:
           arguments: test -S
-
-      - name: Upload test report
-        uses: actions/upload-artifact@v4
-        with:
-          name: test-report
-          path: build/reports/tests/test

@@ -3,12 +3,12 @@ name: PB TP5 CRUD Workflow
 on:
   push:
     tags:
-      - prod
+      - dev
     branches:
       - crud_tp5
   pull_request:
     tags:
-      - prod
+      - dev
     branches:
       - crud_tp5
   workflow_dispatch:
@@ -25,14 +25,10 @@ on:
         type: boolean
 
 jobs:
-  lint-and-test:
-      uses: ./.github/workflows/lint_and_test.yaml
-      with:
-        run_test: ${{ inputs.run_test || true }}
-        run_lint: ${{ inputs.run_lint || true }}
+
   build:
+    environment: dev
     runs-on: ubuntu-latest
-    environment: prod
 
     env:
       SENHA_JAVA: ${{ secrets.SENHA_JAVA }}
@@ -40,6 +36,11 @@ jobs:
       TAXA_TRANSFERENCIA: ${{ vars.TAXA_TRANSFERENCIA }}
 
     steps:
+      - name: Mostrar variaveis
+        env:
+          VARS_JSON: ${{ toJSON(vars) }}
+        run: echo "${VARS_JSON}"
+
       - name: Checkout do código
         uses: actions/checkout@v4
 
@@ -56,9 +57,3 @@ jobs:
         uses: gradle/gradle-build-action@v3
         with:
           arguments: build -x test
-
-      - name: Artefato JAR
-        uses: actions/upload-artifact@v4
-        with:
-          name: app-jar
-          path: build/libs/*.jar
