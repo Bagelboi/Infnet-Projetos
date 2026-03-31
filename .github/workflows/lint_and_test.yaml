@@ -12,7 +12,9 @@ on:
         required: false
         type: boolean
 
+
 jobs:
+
   checkstyle:
     runs-on: ubuntu-latest
     if: ${{ inputs.run_lint }}
@@ -26,6 +28,11 @@ jobs:
   test:
     runs-on: ubuntu-latest
     if: ${{ inputs.run_test }}
+    env:
+      SENHA_JAVA: ${{ secrets.SENHA_JAVA }}
+      SALDO_INICIAL: ${{ vars.SALDO_INICIAL }}
+      TAXA_TRANSFERENCIA: ${{ vars.TAXA_TRANSFERENCIA }}
+
     steps:
       - uses: actions/checkout@v4
 

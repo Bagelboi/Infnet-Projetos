@@ -10,6 +10,11 @@ on:
   workflow_dispatch:
 
 jobs:
+  lint-and-test:
+      uses: ./.github/workflows/lint_and_test.yml
+      with:
+        run_test: ${{ inputs.run_test }}
+        run_lint: ${{ inputs.run_lint }}
   build:
     runs-on: ubuntu-latest
 
@@ -35,13 +40,6 @@ jobs:
 
       - name: Permissão no Gradle Wrapper
         run: chmod +x ./gradlew
-
-
-      - name: Teste e Analise Estatica
-        uses: ./.github/workflows/lint_and_test.yml
-        with:
-          run_test: ${{ inputs.run_test }}
-          run_lint: ${{ inputs.run_lint }}
 
       - name: Build do projeto
         uses: gradle/gradle-build-action@v3
