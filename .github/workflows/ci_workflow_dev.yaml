@@ -57,3 +57,6 @@ jobs:
         uses: gradle/gradle-build-action@v3
         with:
           arguments: build -x test
+
+      - name: Markdown
+        run: echo "Dev!" >> $GITHUB_STEP_SUMMARY

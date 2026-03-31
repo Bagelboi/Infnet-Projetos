@@ -67,3 +67,6 @@ jobs:
         with:
           name: app-jar
           path: build/libs/*.jar
+
+      - name: Markdown
+        run: echo "Produção!" >> $GITHUB_STEP_SUMMARY
