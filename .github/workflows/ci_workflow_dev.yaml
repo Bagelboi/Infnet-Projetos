@@ -1,4 +1,4 @@
-name: PB TP5 CRUD Workflow
+name: PB TP5 CRUD Workflow - Dev
 
 on:
   push:

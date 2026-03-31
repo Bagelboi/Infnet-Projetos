@@ -1,0 +1,3 @@
+# CRUD Projeto de Bloco TP5
+[![PB TP5 CRUD Workflow - Dev](https://github.com/Bagelboi/Infnet-Projetos/actions/workflows/ci_workflow_dev.yaml/badge.svg)](https://github.com/Bagelboi/Infnet-Projetos/actions/workflows/ci_workflow_dev.yaml)
+[![PB TP5 CRUD Workflow](https://github.com/Bagelboi/Infnet-Projetos/actions/workflows/ci_workflow.yaml/badge.svg)](https://github.com/Bagelboi/Infnet-Projetos/actions/workflows/ci_workflow.yaml)
