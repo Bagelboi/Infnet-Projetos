@@ -11,7 +11,7 @@ on:
 
 jobs:
   lint-and-test:
-      uses: ./.github/workflows/lint_and_test.yml
+      uses: ./.github/workflows/lint_and_test.yaml
       with:
         run_test: ${{ inputs.run_test }}
         run_lint: ${{ inputs.run_lint }}
