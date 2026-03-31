@@ -42,5 +42,10 @@ jobs:
           distribution: temurin
           java-version: 17
 
-      - name: Executar testes
-        run: mvn test
+      - name: Permissão no Gradle Wrapper
+        run: chmod +x ./gradlew
+
+      - name: Teste do projeto
+        uses: gradle/gradle-build-action@v3
+        with:
+          arguments: test
