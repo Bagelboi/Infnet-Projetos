@@ -40,6 +40,11 @@ jobs:
       TAXA_TRANSFERENCIA: ${{ vars.TAXA_TRANSFERENCIA }}
 
     steps:
+      - name: Mostrar variaveis
+        env:
+          VARS_JSON: ${{ toJSON(vars) }}
+        run: echo "${VARS_JSON}"
+
       - name: Checkout do código
         uses: actions/checkout@v4
 
