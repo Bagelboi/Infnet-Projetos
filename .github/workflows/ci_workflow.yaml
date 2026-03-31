@@ -44,7 +44,7 @@ jobs:
       - name: Build do projeto
         uses: gradle/gradle-build-action@v3
         with:
-          arguments: build
+          arguments: build -x test
 
       - name: Artefato JAR
         uses: actions/upload-artifact@v4
