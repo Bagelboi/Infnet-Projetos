@@ -49,7 +49,7 @@ public class SwaggerUISeleniumTest {
 
     private void gotoUrl(String path) throws InterruptedException {
         driver.navigate().to(BasePageObject.BASE_URL + path);
-        sleep(2000);
+        sleep(10000);
     }
 
     @AfterAll
@@ -64,12 +64,12 @@ public class SwaggerUISeleniumTest {
         gotoUrl(SwaggerPageObject.PATH);
         swag_page = new SwaggerPageObject(driver);
         WebElement opblock = swag_page.getOpBlock("/contas", "POST");
-        sleep(500);
+        sleep(5000);
         swag_page.tryOutOpblock(opblock);
         swag_page.fillParamater(opblock, "senha_dada", password);
 
         for (int i = 0; i < 5; i++) {
-            sleep(500);
+            sleep(1500);
             swag_page.fillRequestBody(opblock, "Macaco Albino");
             swag_page.executeOpBlock(opblock);
             Assertions.assertTrue(swag_page.responseOk(opblock));
@@ -83,7 +83,7 @@ public class SwaggerUISeleniumTest {
         gotoUrl(SwaggerPageObject.PATH);
         swag_page = new SwaggerPageObject(driver);
         WebElement opblock = swag_page.getOpBlock("/contas/{id}", "DELETE");
-        sleep(500);
+        sleep(5000);
         swag_page.tryOutOpblock(opblock);
         swag_page.fillParamater(opblock, "senha_dada", password);
         swag_page.fillParamater(opblock, "id", "1");
@@ -98,7 +98,7 @@ public class SwaggerUISeleniumTest {
         gotoUrl(SwaggerPageObject.PATH);
         swag_page = new SwaggerPageObject(driver);
         WebElement opblock = swag_page.getOpBlock("/contas/transferir", "PUT");
-        sleep(500);
+        sleep(5000);
         swag_page.tryOutOpblock(opblock);
 
         swag_page.fillRequestBody(opblock, new TransferenciaDTO(2L, 50.0, 3L).toJsonString());
@@ -112,7 +112,7 @@ public class SwaggerUISeleniumTest {
         gotoUrl(SwaggerPageObject.PATH);
         swag_page = new SwaggerPageObject(driver);
         WebElement opblock = swag_page.getOpBlock("/contas", "GET");
-        sleep(500);
+        sleep(5000);
         swag_page.tryOutOpblock(opblock);
         swag_page.executeOpBlock(opblock);
         Assertions.assertTrue(swag_page.responseOk(opblock));
