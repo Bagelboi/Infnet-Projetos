@@ -20,6 +20,7 @@ public class Conta {
 
     @Getter
     private String nome;
+
     public void setNome(String nome) throws RuntimeException {
         this.nome = FormattingUtil.formatNome(nome);
     }

@@ -1,16 +1,16 @@
-name: PB TP4 CRUD Workflow
+name: PB TP5 CRUD Workflow
 
 on:
   push:
     branches:
-      - crud_tp4
+      - crud_tp5
   pull_request:
     branches:
-      - crud_tp4
+      - crud_tp5
   workflow_dispatch:
 
 jobs:
-  test-e-build:
+  build:
     runs-on: ubuntu-latest
 
     env:
@@ -36,12 +36,20 @@ jobs:
       - name: Permissão no Gradle Wrapper
         run: chmod +x ./gradlew
 
-      - name: Rodar testes
-        uses: gradle/gradle-build-action@v3
+
+      - name: Teste e Analise Estatica
+        uses: ./.github/workflows/lint_and_test.yml
         with:
-          arguments: test
+          run_test: ${{ inputs.run_test }}
+          run_lint: ${{ inputs.run_lint }}
 
       - name: Build do projeto
         uses: gradle/gradle-build-action@v3
         with:
           arguments: build
+
+      - name: Artefato JAR
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-jar
+          path: build/libs/*.jar

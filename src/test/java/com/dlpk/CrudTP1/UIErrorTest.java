@@ -10,6 +10,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.time.Duration;
@@ -22,7 +23,8 @@ import java.util.concurrent.TimeoutException;
 @Disabled("Para testar workflows com mais agilidade")
 public class UIErrorTest {
     private static WebDriver driver;
-    private static String password = "macacoalbino123";
+    @Value("${app.senha}")
+    private static String password;
     private SwaggerPageObject swag_page;
     @BeforeAll
     public static void setupClass() {

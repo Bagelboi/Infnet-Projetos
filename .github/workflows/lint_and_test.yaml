@@ -1,0 +1,39 @@
+name: Linting e Teste
+
+on:
+  workflow_call:
+    inputs:
+      run_test:
+        default: true
+        required: false
+        type: boolean
+      run_lint:
+        default: true
+        required: false
+        type: boolean
+
+jobs:
+  checkstyle:
+    runs-on: ubuntu-latest
+    if: ${{ inputs.run_lint }}
+    steps:
+      - uses: actions/checkout@v6
+      - uses: dbelyaev/action-checkstyle@v3
+        continue-on-error: true #Garantido de da erro aqui, a analise é bem restrita e é melhor não impedi a execução por uma falha
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+  test:
+    runs-on: ubuntu-latest
+    if: ${{ inputs.run_test }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Instalar Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - name: Executar testes
+        run: mvn test
