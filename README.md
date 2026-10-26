@@ -7,6 +7,7 @@ Aqui estão projetos destacados que foram feitos no Instituto Infnet por mim ou 
 5. [Bloco de Java e C#](#bloco-de-java-e-c)  
 6. [Bloco de Python e SQL](#bloco-de-python-e-sql)  
 7. [Bloco de Software Escalaveis (DDD, Springboot e Devops)](#bloco-de-software-escalaveis-ddd-springboot-e-devops)  
+8. [Bloco de Inteligência Artificial](#bloco-de-inteligência-artificial)  
 
 # Bloco de Android
 Esse foi meu primeiro bloco e consideravelmente o mais dificil comparado ao resto que cursei depois e que presentemente curso.
@@ -332,5 +333,145 @@ https://www.youtube.com/watch?v=y-3Xjj4SoZQ
   - https://github.com/Bagelboi/ls-eureka-server<br>
   - https://github.com/Bagelboi/ls-gateway-server<br>
 
+
+</details>
+
+# Bloco de Inteligência Artificial
+<details>
+  <summary>Algoritmo Vocacional INFNET (Clusterização e Classificação)</summary><br>
+  Projeto para explorar vários modelos de classificação supervisionada, não supervisionada e, em parte, redes neurais, em cima de um dataset feito por nós mesmos. Os dados vieram de um formulário anônimo divulgado com a seguinte descrição:<br><br>
+
+  > "Nosso grupo na INFNET tá montando um Dataset com dados ANÔNIMOS para testar em vários modelos de Inteligência Artificial e criar um algoritmo vocacional que identifica o melhor curso da INFNET para alguém."
+
+  O formulário perguntava sobre renda (em faixas, para não ser invasivo), formação, afinidade com tecnologia e matemática e gostos pessoais (música, sci-fi, superpoder, motivação no trabalho, como resolve problemas). O target era o curso da INFNET ligado ao interesse principal e ao secundário de cada pessoa.<br><br>
+
+  O curso e a bibliografia me ajudaram a entender melhor as limitações da IA, mesmo quando os modelos já estavam bem evoluídos na época, e de onde parte dessas limitações surgiu. Também me deram uma experiência prática em ciência de dados. Devo crédito à minha dupla Antonio Demarchi.<br>
+
+  ## Código (Google Colab)
+  https://colab.research.google.com/drive/1K5p2GG5oHDx4OEF_fsdKjQ7mhJsw1s9i?usp=sharing
+
+  ## Formulário
+  https://docs.google.com/forms/d/1XAh5iafpNhFyqUHfgRUE7l8X05mJdL8H878_nJBUIOU/edit?ts=68acf541
+
+  ## Preparação dos Dados
+  - Renomeação das features para nomes curtos (ex: "Qual sua área de interesse secundária?" → `interesse_sec`)
+  - Mapeamento ordinal para categorias com ordem natural (formação, tempo de curso, pressão, afinidade com tecnologia, matemática)
+  - Renda: "Sem renda" → 0, "Prefiro não informar" → -1, faixas de salário mínimo → ordinal
+  - One-hot encoding nas categorias nominais (sexo, música, cenário, sci-fi, motivação, superpoder, ação diante de problema)
+  - Target encoding (frequência relativa) no interesse secundário
+  - Transformações opcionais para comparar resultados: agrupar os 12 cursos em 4 macro-áreas, Factor Analysis (15 fatores) e discretização com KBinsDiscretizer
+
+  ## Modelos Testados
+  ### Não-Supervisionados (Clusterização)
+  - K-Means (número de clusters pelo método do cotovelo)
+  - HDBSCAN
+  - Clustering Aglomerativo
+  - BIRCH
+
+  ### Supervisionados (com RandomOverSampler + GridSearchCV, CV = 5)
+  - Regressão Logística com Elastic Net (F1 ≈ 0.958, Acurácia ≈ 0.959)
+  - SVC (linear, polinomial e RBF; o melhor foi RBF com 1.0 em todas as métricas)
+  - Random Forest (1.0 em todas as métricas)
+
+  ## Conclusões
+  - Os algoritmos de clusterização por distância renderam, na prática, só 2 clusters, e os de densidade agruparam quase tudo em 1, sobrando outliers e ruído. A causa é o desequilíbrio de classes: Engenharia de Software e Dev de Sistemas, que são cursos muito parecidos, são a grande maioria das respostas.
+  - Idade e renda tiveram um peso desproporcional na clusterização por variarem muito mais que as outras features, um caso clássico de maldição da dimensionalidade com poucas instâncias.
+  - Na classificação, as métricas foram boas demais para serem confiáveis. É provável que a capacidade de generalização caia conforme o formulário receber mais respostas.
+  - Factor Analysis e discretização pioraram os resultados: com poucas instâncias esparsas e alta dimensionalidade, até calcular a matriz de covariância fica instável.
+
+  ## Fotos
+  ### Respostas do Formulário
+  <img src="imagens/ia/form_aluno_infnet.png" width="45%">
+  <img src="imagens/ia/form_formacao.png" width="45%"><br>
+  <img src="imagens/ia/form_renda_pessoal.png" width="45%">
+  <img src="imagens/ia/form_idade.png" width="45%"><br>
+  <img src="imagens/ia/form_sexo.png" width="45%">
+  <img src="imagens/ia/form_interesse_principal.png" width="45%"><br>
+
+  ### Análise Preliminar
+  Renda pessoal por nível de formação e por faixa etária<br>
+  <img src="imagens/ia/renda_por_formacao.png" width="45%">
+  <img src="imagens/ia/renda_por_idade.png" width="45%"><br>
+  Áreas de interesse para quem se motiva em "Usar a Criatividade" e para quem se fascina por "Segurança de Sistemas" no sci-fi<br>
+  <img src="imagens/ia/areas_motivacao_criatividade.png" width="45%">
+  <img src="imagens/ia/areas_scifi_seguranca.png" width="45%"><br>
+  Primeira ação diante de um problema complexo: "Pensar em Soluções Criativas" e "Coletar Dados para Entender a Causa"<br>
+  <img src="imagens/ia/areas_problema_criatividade.png" width="45%">
+  <img src="imagens/ia/areas_problema_dados.png" width="45%"><br>
+  Consistência das respostas por macro-área<br>
+  <img src="imagens/ia/consistencia_macro_areas.png" width="56%"><br>
+  Estilo musical por área de interesse<br>
+  <img src="imagens/ia/musica_por_area.png" width="56%"><br>
+  Sexo por área de interesse<br>
+  <img src="imagens/ia/sexo_por_area.png" width="56%"><br>
+  Nível de matemática por área de interesse<br>
+  <img src="imagens/ia/matematica_por_area.png" width="56%"><br>
+  Faixas de renda por estilo musical<br>
+  <img src="imagens/ia/renda_por_musica.png" width="56%"><br>
+
+  ### Mapa de Correlação
+  <img src="imagens/ia/correlacao.png" width="45%"><br>
+
+  ### Visualização com t-SNE (classes originais)
+  <img src="imagens/ia/tsne.png" width="56%"><br>
+
+  ### K-Means
+  Método do cotovelo e clusters no espaço t-SNE<br>
+  <img src="imagens/ia/kmeans_cotovelo.png" width="40%">
+  <img src="imagens/ia/kmeans_clusters.png" width="50%"><br>
+  Classes originais dentro de cada cluster<br>
+  <img src="imagens/ia/kmeans_cluster0.png" width="56%"><br>
+  <img src="imagens/ia/kmeans_cluster1.png" width="56%"><br>
+  <img src="imagens/ia/kmeans_cluster2.png" width="56%"><br>
+  <img src="imagens/ia/kmeans_cluster3.png" width="56%"><br>
+  Features mais influentes (idade e renda dominando)<br>
+  <img src="imagens/ia/kmeans_features.png" width="45%"><br>
+
+  ### HDBSCAN
+  <img src="imagens/ia/hdbscan_clusters.png" width="50%"><br>
+  Ruído (-1) e clusters 0 e 1<br>
+  <img src="imagens/ia/hdbscan_ruido.png" width="56%"><br>
+  <img src="imagens/ia/hdbscan_cluster0.png" width="56%"><br>
+  <img src="imagens/ia/hdbscan_cluster1.png" width="56%"><br>
+
+  ### Clustering Aglomerativo (average, single, complete e ward)
+  <img src="imagens/ia/aglomerativo.png" width="70%"><br>
+
+  ### BIRCH
+  <img src="imagens/ia/birch_clusters.png" width="50%"><br>
+  Classes originais dentro de cada cluster<br>
+  <img src="imagens/ia/birch_cluster0.png" width="56%"><br>
+  <img src="imagens/ia/birch_cluster1.png" width="56%"><br>
+  <img src="imagens/ia/birch_cluster2.png" width="56%"><br>
+  <img src="imagens/ia/birch_cluster3.png" width="56%"><br>
+  Features mais influentes<br>
+  <img src="imagens/ia/birch_features.png" width="45%"><br>
+
+  ### K Melhores Features (dataset sintetizado e não-sintetizado)
+  <img src="imagens/ia/kbest_sintetizado.png" width="45%">
+  <img src="imagens/ia/kbest_original.png" width="45%"><br>
+
+  ### Regressão Logística com Elastic Net
+  Matrizes de confusão (sintetizado e original). Confunde Engenharia de Software com Dev de Sistemas.<br>
+  <img src="imagens/ia/logreg_confusao_sintetizado.png" width="45%">
+  <img src="imagens/ia/logreg_confusao_original.png" width="45%"><br>
+  Top 10 features<br>
+  <img src="imagens/ia/logreg_features.png" width="45%"><br>
+
+  ### SVC
+  Matrizes de confusão (sintetizado e original)<br>
+  <img src="imagens/ia/svc_confusao_sintetizado.png" width="45%">
+  <img src="imagens/ia/svc_confusao_original.png" width="45%"><br>
+  Top 10 features<br>
+  <img src="imagens/ia/svc_features.png" width="45%"><br>
+
+  ### Random Forest
+  Matrizes de confusão (sintetizado e original)<br>
+  <img src="imagens/ia/rf_confusao_sintetizado.png" width="45%">
+  <img src="imagens/ia/rf_confusao_original.png" width="45%"><br>
+  Top 10 features (a única vez em que o interesse secundário teve influência significativa)<br>
+  <img src="imagens/ia/rf_features.png" width="45%"><br>
+  Árvore de exemplo do Random Forest (max_depth = 3)<br>
+  <img src="imagens/ia/rf_arvore.png" width="70%"><br>
 
 </details>
